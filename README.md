@@ -20,7 +20,4 @@ React and React Native since 2019, developing authorial projects and projects ma
 
 Currently working as a Front-end web developer, having an experience with React.js and Next.js, but also having a personal experience as a fullstack developing authoring projects.
 
-I worked on the development of a RESTfull API in partnership with UECE, IFCE and Multilaser. Where I had a huge development experience, working with business rules, systems design, technologies like node.js (where I had my first contact with it).
-
-
 
