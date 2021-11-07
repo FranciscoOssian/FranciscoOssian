@@ -14,7 +14,7 @@
 
 ## About me
 
-I always liked technology and today I work with it. In high school I learned to program starting in C through youtube. Today I am a university student and front-end developer intern. I like everything that involves technology, from the depth of problem solving to the visual part.
+I always like technology and today I work with it. In high school I learned to program starting in C through youtube. Today I am a university student and front-end developer intern. I like everything that involves technology, from the depth of problem solving to the visual part.
 
 React and React Native since 2019, developing authorial projects and projects made for the market. Also having knowledge of back-end programming, being very familiar with full-stack.
 
