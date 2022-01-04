@@ -27,5 +27,5 @@ Currently working as a Front-end web developer, having an experience with React.
 </p>
 
 <p align="right" contentEditable="true">
-    <a href=”https://www.linkedin.com/in/francisco-ossian/"><img src="https://img.shields.io/badge/-LinkedIn-0e76a8?style=plastic&logo=linkedIn"></img></a>
+    www.linkedin.com/in/francisco-ossian
 </p>
