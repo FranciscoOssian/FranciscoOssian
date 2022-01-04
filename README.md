@@ -20,4 +20,6 @@ React and React Native since 2019, developing authorial projects and projects ma
 
 Currently working as a Front-end web developer, having an experience with React.js and Next.js, but also having a personal experience as a fullstack developing authoring projects.
 
-
+<p align="center" contentEditable="true">
+  <img width="100px" src="https://raw.githubusercontent.com/FranciscoOssian/FranciscoOssian/main/mona-loading-default.gif"></img>
+</p>
