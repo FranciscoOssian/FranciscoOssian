@@ -25,3 +25,7 @@ Currently working as a Front-end web developer, having an experience with React.
 <p align="center" contentEditable="true">
   <img width="100px" src="https://raw.githubusercontent.com/FranciscoOssian/FranciscoOssian/main/mona-loading-default.gif"></img>
 </p>
+
+<p align="right" contentEditable="true">
+    <a href=”https://www.linkedin.com/in/francisco-ossian/"><img src="https://img.shields.io/badge/-LinkedIn-0e76a8?style=plastic&logo=linkedIn"></img></a>
+</p>
