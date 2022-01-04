@@ -20,7 +20,7 @@ I always like technology and today I work with it. In high school I started lear
 
 React and React Native since 2019, developing authorial projects and projects made for the market. Also having knowledge of back-end programming, being very familiar with full-stack.
 
-Currently working as a Front-end web developer, having an experience with React.js and Next.js, but also having a personal experience as a fullstack developing authoring projects.
+Currently working as a Front-end web developer, having an experience with React.js and Next.js, but also having a personal experience as a fullstack developing authorial projects.
 
 <p align="center" contentEditable="true">
   <img width="100px" src="https://raw.githubusercontent.com/FranciscoOssian/FranciscoOssian/main/mona-loading-default.gif"></img>
