@@ -1,11 +1,7 @@
 import Head from 'next/head'
-import { TyperWriter } from '../src/Components/TyperWriter'
 import { Title } from '../src/Components/Title'
 import { Card } from '../src/Components/Card'
 import styles from '../styles/Home.module.css'
-
-import { useEffect } from 'react'
-import util from 'util'
 
 import { initializeApp } from "firebase/app"
 import { getDatabase, ref, get} from "firebase/database"
