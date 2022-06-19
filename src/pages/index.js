@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { Title } from '../src/Components/Title'
-import { Card } from '../src/Components/Card'
-import styles from '../styles/Home.module.css'
+import { Title } from '../Components/Title'
+import { Card } from '../Components/Card'
+import styles from '../../styles/Home.module.css'
 
 import { initializeApp } from "firebase/app"
 import { getDatabase, ref, get} from "firebase/database"
