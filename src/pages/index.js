@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import { Title } from '../Components/Title'
-import { Card } from '../Components/Card'
+import { Title } from '../Components/pages/index/Title'
+import { Description } from '../Components/pages/index/Description'
+import { Page } from '../Components/common/Page'
+import { Links } from '../Components/pages/index/Links'
 import styles from '../../styles/Home.module.css'
 
 import { initializeApp } from "firebase/app"
@@ -8,9 +10,8 @@ import { getDatabase, ref, get} from "firebase/database"
 
 export default function Home({links, description}) {
 
-
   return (
-    <div className={styles.container}>
+    <Page>
 
       <Head>
         <title>Francisco Ossian</title>
@@ -18,7 +19,7 @@ export default function Home({links, description}) {
         <link rel="icon" href="/faon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main>
 
         <Title>
           Welcome to {' '}
@@ -27,30 +28,17 @@ export default function Home({links, description}) {
           >Francisco.Ossian</a>
         </Title>
 
-        <p className={styles.description}>
-          {description}
-        </p>
+        <Description text={description}/>
 
-        Get started seeing my links
+        <div className={styles.linkTitle}>Get started seeing my links</div>
 
-        <div className={styles.grid}>
-          {
-            links.map(
-              link => <Card
-                key={link.link}
-                title={link.name}
-                link={link.link}
-                text=""
-              />
-            )
-          }
-        </div>
+        <Links links={links} />
 
       </main>
 
       <footer className={styles.footer}>
       </footer>
-    </div>
+    </Page>
   )
 }
 

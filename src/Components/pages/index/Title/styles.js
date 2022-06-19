@@ -12,6 +12,8 @@ export const Element = styled.div`
         text-decoration: underline;
     }
 
+    width: 100%;
+
     margin: 0;
     font-size: 1.5rem;
     font-weight: 700;
