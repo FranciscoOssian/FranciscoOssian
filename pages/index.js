@@ -5,9 +5,10 @@ import { Card } from '../src/Components/Card'
 import styles from '../styles/Home.module.css'
 
 import { useEffect } from 'react'
+import util from 'util'
 
 import { initializeApp } from "firebase/app"
-import { getDatabase, ref, onValue} from "firebase/database"
+import { getDatabase, ref, get} from "firebase/database"
 
 export default function Home({links, description}) {
 
@@ -73,20 +74,12 @@ export async function getStaticProps() {
   const database = getDatabase(app)
   const linksRef = ref(database, 'links')
   const descriptionRef = ref(database, 'description')
-  let links = []
-  let description = '';
-  onValue( linksRef, (snapshot) => {
-    const data = snapshot.val()
-    links = data
-  })
-  onValue( descriptionRef, (snapshot) => {
-    const data = snapshot.val()
-    description = data
-  })
+  const links = (await get(linksRef)).val()
+  const description = (await get(descriptionRef)).val()
   return {
     props: {
-      links,
-      description: description
+      links: links? links : [],
+      description: description? description : ''
     },
     revalidate: 100000,
   }
