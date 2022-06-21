@@ -23,7 +23,7 @@ export const Element = styled.div`
     }
 
     .line-1{
-        border-right: 2px solid rgba(255,255,255,.75);
+        border-right: 0.125rem solid rgba(255,255,255,.75);
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
