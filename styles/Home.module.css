@@ -16,7 +16,7 @@
 .grid {
   display: grid;
   grid-template-columns: auto;
-  margin-bottom: 200px;
+  margin-bottom: 12.5rem;
 }
 
 @media (min-width: 600px) {

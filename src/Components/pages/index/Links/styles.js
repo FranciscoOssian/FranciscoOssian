@@ -21,25 +21,25 @@ export const Element = styled.ul`
         display: grid;
         grid-template-columns: 66.66% 33.33%;
 
-        margin-bottom: 16px;
+        margin-bottom: 1rem;
         aspect-ratio: 150/51;
 
         box-sizing: border-box;
-        border: 1px solid rgba(0, 0, 0, 0.22);
-        border-radius: 10px;
+        border: 0.0625rem solid rgba(0, 0, 0, 0.22);
+        border-radius: 0.625rem;
         
         div{
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 38px;
-            line-height: 46px;
+            font-size: 2.375rem;
+            line-height: 2.875rem;
         }
         
         & div:first-of-type{
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
         }
     }
 
@@ -48,10 +48,10 @@ export const Element = styled.ul`
         flex-wrap: wrap;
         justify-content: center;
         li {
-            width: 155px;
-            height: 155px;
+            width: 9.6875rem;
+            height: 9.6875rem;
 
-            margin: 22px;
+            margin: 1.375rem;
 
             display: flex;
             flex-direction: column;
