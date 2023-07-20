@@ -24,7 +24,7 @@ const GET_PINNED_REPOS = `
   }
 `;
 
-async function getPinnedReposGithub() {
+async function getPinnedReposGithub(config: RequestInit) {
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -33,6 +33,7 @@ async function getPinnedReposGithub() {
         'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify({ query: GET_PINNED_REPOS }),
+      ...config
     });
 
     const data = await response.json();
@@ -56,7 +57,9 @@ export default async function getPinnedRepos() {
   let data = cache.get(key);
 
   if (!data) {
-    data = await getPinnedReposGithub();
+    data = await getPinnedReposGithub(
+      { next: {revalidate: 86400} }
+    );
     cache.set(key, data);
   }
 

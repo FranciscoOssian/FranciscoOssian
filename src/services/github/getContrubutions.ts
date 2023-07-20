@@ -26,7 +26,7 @@ const GET_CONTRIBUTIONS = `
 `;
 
 
-async function getData(config: any) {
+async function getData(config: RequestInit) {
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -60,7 +60,7 @@ export default async function getContributions() {
 
   if (!data) {
     data = await getData(
-        { cache: 'no-store' }
+      { next: {revalidate: 86400} }
     );
     cache.set(key, data);
   }
