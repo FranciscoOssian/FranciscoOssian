@@ -4,11 +4,19 @@ import PinnedList from '@/components/pages/index/PinnedList';
 import styles from './page.module.css';
 import Contributions from '@/components/pages/index/Contributions';
 
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <main className={styles.main}>
       <section className={styles.profile}>
-        <img src="/profile-pic.jpg" className={styles.profilePic} alt="Profile"/>
+        <div className={styles.profilePic}>
+          <Image
+            fill
+            alt=""
+            src="https://firebasestorage.googleapis.com/v0/b/foln-dev.appspot.com/o/1565609248634.jpeg?alt=media&token=81084dae-2484-4063-9842-87116ccab4fa"
+          />
+        </div>
         <div>
           <h1 className={styles.title}>Francisco Ossian</h1>
           <p className={styles.bio}>Desenvolvedor front-end, apaixonado por tecnologia e aprendizado contínuo.</p>

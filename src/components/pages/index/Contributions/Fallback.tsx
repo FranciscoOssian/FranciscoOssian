@@ -14,9 +14,9 @@ interface FallbackProps {
 }
 
 const Fallback: React.FC<FallbackProps> = ({children}) => {
-    return <Suspense fallback={<ContributionsSkeleton/>}>
-        {children}
-    </Suspense>
+  return <Suspense fallback={<ContributionsSkeleton/>}>
+    {children}
+  </Suspense>
 }
 
 export default Fallback;

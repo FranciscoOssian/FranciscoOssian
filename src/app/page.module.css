@@ -13,10 +13,18 @@
   margin-bottom: 20px;
 }
 
-.profilePic {
-  width: 100px;
-  height: 100px;
+.profilePic,
+.profilePic * {
+  width: 100px !important;
+  height: 100px !important;
   border-radius: 50%;
+  position: relative;
+
+  background-color: red;
+}
+
+.profilePic {
+  overflow: hidden;
 }
 
 .bio {
