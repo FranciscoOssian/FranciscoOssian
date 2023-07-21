@@ -1,8 +1,10 @@
-import Contributions from './Component'
-import Fallback from './Fallback'
+import Contributions from './Component';
+import Fallback from './Fallback';
 
-export default function Con(){
-    return <Fallback>
-        <Contributions/>
+export default function Con() {
+  return (
+    <Fallback>
+      <Contributions />
     </Fallback>
+  );
 }
