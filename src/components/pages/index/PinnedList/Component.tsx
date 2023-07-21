@@ -1,11 +1,11 @@
 import getPinnedRepos from '@/services/github/getPinnedRepos';
-import './styles.scss'
+import './pin.scss'
 
 export default async function RepoList (){
 
     const repos: any = await getPinnedRepos();
 
-    return <div id="PinnedRepos-scss-37dnw2">
+    return <div id="PinnedRepos">
         <ol className='ol'>
         {repos?.map((repo: any) => (
             <li key={repo.id}>

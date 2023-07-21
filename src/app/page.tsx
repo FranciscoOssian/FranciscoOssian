@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import PinnedList from '@/components/pages/index/PinnedList';
-import styles from './page.module.css';
+import styles from '@/styles/page.module.scss';
 import Contributions from '@/components/pages/index/Contributions';
 
 import Image from 'next/image';

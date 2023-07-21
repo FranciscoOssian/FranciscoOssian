@@ -1,6 +1,6 @@
 import getContributions from "@/services/github/getContrubutions";
 
-import './con.styles.scss'
+import './styles.scss'
 
 const monthNames = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
