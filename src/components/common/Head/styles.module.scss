@@ -27,8 +27,11 @@
       align-items: center;
       font-size: 18px;
       justify-content: space-between;
+      *:hover {
+        text-decoration: none;
+      }
       li[data-show='no'] {
-        display: none;
+        text-decoration: underline;
       }
     }
   }

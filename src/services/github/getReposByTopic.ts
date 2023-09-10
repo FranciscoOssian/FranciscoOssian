@@ -48,7 +48,10 @@ async function getReposByTopicGithub(config: RequestInit, TOPIC_NAME: string) {
       throw new Error('Unexpected API response');
     }
 
-    console.log(data.data);
+    data.data.viewer.repositories.nodes.map((repo: any) => {
+      console.log(repo.name);
+      repo.repositoryTopics.nodes.map((t: any) => console.log(t));
+    });
 
     return data.data.viewer.repositories.nodes.filter((repo: any) => {
       return repo.repositoryTopics.nodes.some((element: any) => {
@@ -64,11 +67,12 @@ async function getReposByTopicGithub(config: RequestInit, TOPIC_NAME: string) {
 const cache = new NodeCache({ stdTTL: 86400, checkperiod: 120 });
 
 export default async function getReposByTopic(TOPIC_NAME: string) {
-  const key = 'githubData-repos-by-topic-' + TOPIC_NAME;
+  const key = `githubData-repos-by-topic-${TOPIC_NAME}`;
+  console.log(key);
   let data = cache.get(key);
 
   if (!data) {
-    data = await getReposByTopicGithub({ next: { revalidate: 86400 } }, TOPIC_NAME);
+    data = await getReposByTopicGithub({ next: { revalidate: 86400 } }, TOPIC_NAME || '');
     cache.set(key, data);
   }
 

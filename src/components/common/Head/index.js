@@ -1,6 +1,6 @@
 'use client';
 
-import Image from './Image';
+import ImageHead from './Image';
 import { usePathname } from 'next/navigation';
 
 import styles from './styles.module.scss';
@@ -9,7 +9,7 @@ export default function Head() {
   const pathName = usePathname();
   return (
     <div className={styles.head}>
-      <Image />
+      <ImageHead />
       <nav>
         <ul>
           {[
