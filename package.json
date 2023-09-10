@@ -1,5 +1,5 @@
 {
-  "name": "site",
+  "name": "francisco.ossian",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@firebase/database": "^0.13.1",
-    "firebase": "^9.8.3",
-    "next": "12.1.6",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.1",
+    "@types/node": "20.4.2",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "eslint-config-next": "13.4.10",
+    "graphql-request": "^6.1.0",
+    "next": "13.4.10",
+    "node-cache": "^5.1.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-content-loader": "^6.2.1",
+    "react-dom": "18.2.0",
+    "styled-components": "^6.0.4",
+    "swr": "^2.2.0",
+    "typescript": "5.1.6"
   },
   "devDependencies": {
-    "eslint": "8.18.0",
-    "eslint-config-next": "12.1.6"
+    "eslint": "^8.45.0",
+    "prettier": "^3.0.0",
+    "sass": "^1.63.6"
   }
 }

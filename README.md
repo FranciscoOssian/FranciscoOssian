@@ -1,4 +1,4 @@
-# Hi there 👋💻
+# Hi there 👋💻 <img width="5px" height="25px" src="https://imgur.com/wuDhMTc.gif"></img>
 
 <p align="center" contentEditable="true">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"></img>
@@ -8,24 +8,22 @@
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></img>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"></img>
 </p>
-
 <p align="center" contentEditable="true">
   <img width="100px" src="https://media1.tenor.com/images/58725865c95fe20cfc595725fca0d6a3/tenor.gif"></img>
-  My name is Francisco, I study computer science at UECE.
+  My name is Francisco, and I study computer science at UECE.
 </p>
 
 ## About me
 
-I always like technology and today I work with it. In high school I started learn C language through youtube. Today I am a university student and front-end developer. I like everything that involves technology, from the depth of problem solving to the visual part.
+I have always been passionate about technology, and now I work with it. I first started learning C language through YouTube during high school, and now I am a university student and front-end developer. I enjoy everything that involves technology, from the depths of problem-solving to the visual aspects.
 
-React and React Native since 2019, developing authorial projects and projects made for the market. Also having knowledge of back-end programming, being very familiar with full-stack.
+I have been working with React and React Native since 2019, developing both personal and market-driven projects. I also have knowledge of back-end programming and am comfortable working as a full-stack developer.
 
-Currently working as a Front-end web developer, having an experience with React.js and Next.js, but also having a personal experience as a fullstack developing authorial projects.
+Currently, I work as a front-end web developer, with experience in React.js and Next.js. I also have personal experience as a full-stack developer, creating my own projects.
 
 <p align="center" contentEditable="true">
   <img width="100px" src="https://raw.githubusercontent.com/FranciscoOssian/FranciscoOssian/main/mona-loading-default.gif"></img>
 </p>
-
 <p align="right" contentEditable="true">
     www.linkedin.com/in/francisco-ossian
 </p>
