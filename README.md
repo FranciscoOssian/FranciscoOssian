@@ -3,7 +3,7 @@
 >  <kbd> <br> [About](https://www.foln.dev/about) <br> </kbd> >
 >  <kbd> <br> [Blog](https://www.foln.dev/blog) <br> </kbd> >
 >  <kbd> <br> [Projects](https://www.foln.dev/projects) <br> </kbd> >
->  <kbd> <br> [Contact](https://www.foln.dev/contanct) <br> </kbd>
+>  <kbd> <br> [Contact](https://www.foln.dev/contact) <br> </kbd>
 <p align="right">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"></img>
   <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"></img>
