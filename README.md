@@ -1,6 +1,10 @@
 # Hi there 👋💻 <img width="5px" height="25px" src="https://imgur.com/wuDhMTc.gif"></img>
-
-<p align="center" contentEditable="true">
+>  <kbd> <br> [Home](https://www.foln.dev) <br> </kbd> >
+>  <kbd> <br> [About](https://www.foln.dev/about) <br> </kbd> >
+>  <kbd> <br> [Blog](https://www.foln.dev/blog) <br> </kbd> >
+>  <kbd> <br> [Projects](https://www.foln.dev/projects) <br> </kbd> >
+>  <kbd> <br> [Contact](https://www.foln.dev/contanct) <br> </kbd>
+<p align="right">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"></img>
   <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"></img>
   <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white"></img>
@@ -8,6 +12,8 @@
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></img>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"></img>
 </p>
+
+##
 <p align="center" contentEditable="true">
   <img width="100px" src="https://media1.tenor.com/images/58725865c95fe20cfc595725fca0d6a3/tenor.gif"></img>
   My name is Francisco, and I study computer science at UECE.
