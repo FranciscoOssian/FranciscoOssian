@@ -47,10 +47,9 @@ async function getReposByNameGithub(config: RequestInit, REPO_NAME: string) {
 
     const data = await response.json();
 
-    
     if (!data || !data.data) {
       //throw new Error('Unexpected API response');
-      return {error: true}
+      return { error: true }
     }
     return data.data.viewer.repository;
   } catch (error) {
@@ -63,7 +62,6 @@ const cache = new NodeCache({ stdTTL: 86400, checkperiod: 120 });
 
 export default async function getReposByName(REPO_NAME: string) {
   const key = `githubData-repo-by-name-${REPO_NAME}`;
-  console.log(key);
   let data = cache.get(key);
 
   if (!data) {

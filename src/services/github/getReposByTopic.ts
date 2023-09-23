@@ -54,7 +54,6 @@ async function getReposByTopicGithub(config: RequestInit, TOPIC_NAME: string) {
     }
 
     data.data.viewer.repositories.nodes.map((repo: any) => {
-      console.log(repo.name);
       repo.repositoryTopics.nodes.map((t: any) => console.log(t));
     });
 
@@ -73,7 +72,6 @@ const cache = new NodeCache({ stdTTL: 86400, checkperiod: 120 });
 
 export default async function getReposByTopic(TOPIC_NAME: string) {
   const key = `githubData-repos-by-topic-${TOPIC_NAME}`;
-  console.log(key);
   let data = cache.get(key);
 
   if (!data) {
