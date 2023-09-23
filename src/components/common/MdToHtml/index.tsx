@@ -2,6 +2,14 @@ import React from 'react';
 import { marked } from 'marked';
 import './styles.scss';
 
+function escapeXml(xml: string) {
+  return xml.replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 // Override function
 const renderer = {
   code(text: string) {
@@ -12,7 +20,7 @@ const renderer = {
           <input type="radio" name="window-control" class="mac-window-button minimize">
           <input type="radio" name="window-control" class="mac-window-button maximize">
         </div>
-        <pre class="terminal-frame-text">${text}</pre>
+        <pre class="terminal-frame-text">${escapeXml(text)}</pre>
       </div>
     `;
 
