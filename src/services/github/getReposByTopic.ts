@@ -17,6 +17,11 @@ const GET_ALL_REPOS = `
           stargazers {
             totalCount
           }
+          object(expression: "main:README.md") {
+            ... on Blob {
+              text
+            }
+          }
           repositoryTopics(first: 10) {
             nodes {
               topic {
