@@ -1,0 +1,52 @@
+/* Estilo para a janela do terminal */
+.terminal-frame {
+    width: 800px;
+    height: 600px;
+    background-color: #2e2e2e;
+    border: 1px solid #333;
+    border-radius: 5px;
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para o texto do terminal dentro da janela */
+.terminal-frame-text {
+    font-family: monospace;
+    color: #00ff00;
+    padding: 10px;
+    overflow-y: scroll;
+    height: calc(100% - 30px);
+    /* Reduz o espaço para a área de botões */
+}
+
+/* Estilo para a área de botões no topo da janela */
+.mac-window-controls {
+    background-color: #444;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para os botões de controle */
+.mac-window-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff5f57;
+    margin: 0 6px;
+}
+
+/* Estilo específico para os botões */
+.close {
+    background-color: #ff5f57;
+}
+
+.minimize {
+    background-color: #ffbd2e;
+}
+
+.maximize {
+    background-color: #28ca41;
+}
