@@ -21,6 +21,19 @@ const MAKE_GET_REPO_PARAM = (repo: string) => `
             text
           }
         }
+        ref(qualifiedName: "main"){
+          target{
+            ... on Commit {
+              history(first: 3, path: "README.md") {
+                edges {
+                  node {
+                    committedDate
+                  }
+                }
+              }
+            }
+          }
+        }
         repositoryTopics(first: 10) {
           nodes {
             topic {
@@ -49,7 +62,7 @@ async function getReposByNameGithub(config: RequestInit, REPO_NAME: string) {
 
     if (!data || !data.data) {
       //throw new Error('Unexpected API response');
-      return { error: true }
+      return { error: true, data: data.errors }
     }
     return data.data.viewer.repository;
   } catch (error) {
