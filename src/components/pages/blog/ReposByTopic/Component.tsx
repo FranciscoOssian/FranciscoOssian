@@ -5,5 +5,5 @@ import List from '@/components/common/RepoList';
 export default async function RepoList({ topic }: { topic: string }) {
   const list: any = await getReposByTopic(topic);
 
-  return <List repos={list} />;
+  return <List goToGithub={false} repos={list} />;
 }
