@@ -53,10 +53,6 @@ async function getReposByTopicGithub(config: RequestInit, TOPIC_NAME: string) {
       throw new Error('Unexpected API response');
     }
 
-    data.data.viewer.repositories.nodes.map((repo: any) => {
-      repo.repositoryTopics.nodes.map((t: any) => console.log(t));
-    });
-
     return data.data.viewer.repositories.nodes.filter((repo: any) => {
       return repo.repositoryTopics.nodes.some((element: any) => {
         return element.topic.name === TOPIC_NAME;
