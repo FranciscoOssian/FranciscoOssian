@@ -1,6 +1,6 @@
-const yaml = require('js-yaml');
+const yaml = require("js-yaml");
 
-export default async function yamlToJSON(yamlString: string): Promise<object> {
+export default async function yamlToJSON(yamlString: string): Promise<any> {
   return new Promise((resolve, reject) => {
     try {
       if (!yamlString) {

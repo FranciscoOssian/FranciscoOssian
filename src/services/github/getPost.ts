@@ -1,7 +1,6 @@
-import NodeCache from 'node-cache';
-import yamlToJSON from '../yaml';
+import yamlToJSON from "../yaml";
 
-const endpoint = 'https://api.github.com/graphql';
+const endpoint = "https://api.github.com/graphql";
 const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
 
 const MAKE_GET_POST_PARAM = (repo: string, postFolder: string) => `
@@ -38,15 +37,21 @@ const MAKE_GET_POST_PARAM = (repo: string, postFolder: string) => `
   }
 `;
 
-async function getPostFromGithub(config: RequestInit, REPO_NAME: string, POST_FOLDER: string) {
+async function getPostFromGithub(
+  config: RequestInit,
+  REPO_NAME: string,
+  POST_FOLDER: string
+) {
   try {
     const response = await fetch(endpoint, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ query: MAKE_GET_POST_PARAM(REPO_NAME, POST_FOLDER) }),
+      body: JSON.stringify({
+        query: MAKE_GET_POST_PARAM(REPO_NAME, POST_FOLDER),
+      }),
       ...config,
     });
 
@@ -57,11 +62,12 @@ async function getPostFromGithub(config: RequestInit, REPO_NAME: string, POST_FO
     }
     return {
       content: data.data.viewer.repository.postFolder.entries.find(
-        (e: any) => e.name === 'content.md'
+        (e: any) => e.name === "content.md"
       ).object.text,
       settings: await yamlToJSON(
-        data.data.viewer.repository.postFolder.entries.find((e: any) => e.name === 'settings.yaml')
-          .object.text
+        data.data.viewer.repository.postFolder.entries.find(
+          (e: any) => e.name === "settings.yaml"
+        ).object.text
       ),
       lastCommit: data.data.viewer.repository.lastCommit,
       name: POST_FOLDER,
@@ -72,23 +78,15 @@ async function getPostFromGithub(config: RequestInit, REPO_NAME: string, POST_FO
   }
 }
 
-const cache = new NodeCache({ stdTTL: 86400, checkperiod: 120 });
-
 export default async function getPost(
   REPO_NAME: string,
   POST_FOLDER: string
 ): Promise<{ name: string; content: any; settings: any; lastCommit: any }> {
-  const key = `githubData-post-${REPO_NAME}-${POST_FOLDER}`;
-  let data = cache.get(key);
-
-  if (!data) {
-    data = await getPostFromGithub(
-      { next: { revalidate: 86400 } },
-      REPO_NAME || '',
-      POST_FOLDER || ''
-    );
-    cache.set(key, data);
-  }
+  const data = await getPostFromGithub(
+    { next: { revalidate: 86400 } },
+    REPO_NAME || "",
+    POST_FOLDER || ""
+  );
 
   return data as { name: string; content: any; settings: any; lastCommit: any };
 }

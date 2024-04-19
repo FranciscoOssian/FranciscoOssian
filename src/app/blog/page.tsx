@@ -1,28 +1,40 @@
-import styles from '@/styles/page.module.scss';
-import Posts from '@/components/pages/blog/Posts';
-import listPosts from '@/services/github/listPosts';
-import getPage from '@/services/github/getPage';
+import List from "@/components/common/List";
+import listPages from "@/services/github/listPages";
+import getPage from "@/services/github/getPage";
+import yamlToJSON from "@/services/yaml";
 
 export default async function Home() {
-  let list: any = await listPosts('foln-cms-md');
+  let list: any = await listPages("foln-cms-md", "blog");
+
+  console.log(list);
 
   list = await Promise.all(
     list.map(async (name: string) => ({
-      post: await getPage('foln-cms-md', `pages/blog/${name}`),
-      name: name,
+      slug: name,
+      ...(await getPage("foln-cms-md", `pages/blog/${name}`)),
     }))
   );
 
-  list = list.map(({ post, name }: any) => ({
-    id: name,
-    name: post?.settings?.title ?? name,
-    url: `/blog/${name}`,
-    description: post?.settings?.description ?? name,
-  }));
+  console.log(list[0].yaml);
+
+  list = await Promise.all(
+    list.map(async (item: any) => {
+      const settings = await yamlToJSON(item.yaml[0]?.object?.text);
+      return {
+        title: settings.title,
+        description: settings.description,
+        image: settings.image,
+        link: `/blog/${item?.slug}`,
+        tags: settings.tags ?? [],
+      };
+    })
+  );
+
+  console.log(list);
 
   return (
-    <main className={styles.main}>
-      <Posts listPosts={list} />
+    <main>
+      <List background="transparent" list={list} />
       <br />
     </main>
   );

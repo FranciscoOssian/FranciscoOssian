@@ -1,6 +1,4 @@
-import NodeCache from 'node-cache';
-
-const endpoint = 'https://api.github.com/graphql';
+const endpoint = "https://api.github.com/graphql";
 const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
 
 const MAKE_GET_REPO_PARAM = (repo: string) => `
@@ -49,9 +47,9 @@ const MAKE_GET_REPO_PARAM = (repo: string) => `
 async function getReposByNameGithub(config: RequestInit, REPO_NAME: string) {
   try {
     const response = await fetch(endpoint, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ query: MAKE_GET_REPO_PARAM(REPO_NAME) }),
@@ -62,7 +60,7 @@ async function getReposByNameGithub(config: RequestInit, REPO_NAME: string) {
 
     if (!data || !data.data) {
       //throw new Error('Unexpected API response');
-      return { error: true, data: data.errors }
+      return { error: true, data: data.errors };
     }
     return data.data.viewer.repository;
   } catch (error) {
@@ -71,16 +69,6 @@ async function getReposByNameGithub(config: RequestInit, REPO_NAME: string) {
   }
 }
 
-const cache = new NodeCache({ stdTTL: 86400, checkperiod: 120 });
-
 export default async function getReposByName(REPO_NAME: string) {
-  const key = `githubData-repo-by-name-${REPO_NAME}`;
-  let data = cache.get(key);
-
-  if (!data) {
-    data = await getReposByNameGithub({ next: { revalidate: 86400 } }, REPO_NAME || '');
-    cache.set(key, data);
-  }
-
-  return data;
+  return getReposByNameGithub({ next: { revalidate: 86400 } }, REPO_NAME || "");
 }

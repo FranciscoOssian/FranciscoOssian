@@ -1,49 +1,50 @@
-/* eslint-disable @next/next/no-img-element */
+import BentoPanel from "@/components/common/BentoPanel";
+import OpacityCard from "@/components/common/OpacityCard";
+import PageFrame from "@/components/common/PageFrame";
+import Projets from "@/components/common/List";
+import getPage from "@/services/github/getPage";
+import yamlToJSON from "@/services/yaml";
 
-import PinnedList from '@/components/pages/index/PinnedList';
-import styles from '@/styles/page.module.scss';
-import Contributions from '@/components/pages/index/Contributions';
-
-import Image from 'next/image';
-import PageContainer from '@/components/common/PageContainer';
-
-export default function Home() {
+export default async function Home() {
+  const page = await getPage("foln-cms-md", "pages/index");
+  const settings = await yamlToJSON(page.yaml[0].object.text);
   return (
-    <main className={styles.main}>
-      <PageContainer>
-        <section className={styles.profile}>
-          <div className={styles.profilePic}>
-            <Image
-              fill
-              alt=""
-              src="https://firebasestorage.googleapis.com/v0/b/foln-dev.appspot.com/o/emoji-home.png?alt=media&token=47eeebba-9522-41e5-9dc6-143b6db4e810"
-            />
-          </div>
-          <div>
-            <h1 className={styles.title}>Francisco Ossian</h1>
-            <p className={styles.bio}>
-              Desenvolvedor front-end, apaixonado por tecnologia e aprendizado contínuo.
-            </p>
-          </div>
-        </section>
-        <section className={styles.repos}>
-          <h2 className={styles.title}>Repositórios</h2>
-          <p>Aqui estão alguns dos meus repositórios no GitHub:</p>
-          <PinnedList />
-        </section>
-        <section className={styles.contributions}>
-          <h2 className={styles.title}>Contribuições</h2>
-          <p>Aqui está o meu gráfico de contribuições do GitHub:</p>
-          <Contributions />
-        </section>
-        <section className={styles.contact}>
-          <h2 className={styles.title}>Contate-me</h2>
-          <p>Interessado em trabalhar comigo ou quer dizer oi? Entre em contato.</p>
-          <a href="/contato" className={styles.link}>
-            Contato
-          </a>
-        </section>
-      </PageContainer>
+    <main>
+      <PageFrame className="lg:mt-[70px] bg-black">
+        <BentoPanel
+          image="/me-draw.png"
+          title={settings.about.title}
+          text={settings.about.text}
+          links={[
+            {
+              href: "https://github.com/FranciscoOssian",
+              svgPath: "/github-icon.svg",
+            },
+            {
+              href: "https://www.youtube.com/user/canalbomon",
+              svgPath: "/youtube-icon.svg",
+            },
+            {
+              href: "https://www.linkedin.com/in/francisco-ossian",
+              svgPath: "/linkedin-icon.svg",
+            },
+            {
+              href: "https://api.whatsapp.com/send/?phone=5555859920485&text&type=phone_number&app_absent=0",
+              svgPath: "/whatsapp-icon.svg",
+            },
+          ]}
+        />
+        <OpacityCard
+          title={settings.what_i_do.title}
+          text={settings.what_i_do.text}
+          image={{ src: "/bg-placeholder.jpg" }}
+          button={{
+            href: settings.what_i_do.link,
+          }}
+          className="my-[70px]"
+        />
+        <Projets title="Projetos" list={settings.projects} />
+      </PageFrame>
     </main>
   );
 }

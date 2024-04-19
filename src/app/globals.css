@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&display=swap");
+
+:root {
+  --primary: #79f085;
+  --secondary: #7f21ca;
+  @apply 2xl:text-2xl;
+}
+
+@layer base {
+  .bg-header {
+    background-color: #3c3c3c;
+  }
+
+  .font-montserrat-subrayada {
+    font-family: "Montserrat Subrayada", sans-serif;
+  }
+
+  body {
+    background-color: #010101;
+  }
+}
+
+@layer components {
+  .headerWithBurger:has(input:checked) aside {
+    @apply translate-x-0;
+  }
+
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  .bg-secondary {
+    background-color: var(--secondary);
+  }
+  .color-primary {
+    color: var(--primary);
+  }
+  .color-secondary {
+    color: var(--secondary);
+  }
+  .base-button {
+    @apply select-none cursor-pointer rounded-[2.1875rem] text-center bg-primary color-secondary hover:bg-secondary hover:color-primary;
+  }
+  .base-button-active {
+    @apply select-none cursor-pointer rounded-[2.1875rem] text-center bg-secondary color-primary hover:bg-primary hover:color-secondary;
+  }
+}
