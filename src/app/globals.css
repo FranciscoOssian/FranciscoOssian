@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&display=swap');
 
 :root {
   --primary: #79f085;
@@ -16,7 +16,7 @@
   }
 
   .font-montserrat-subrayada {
-    font-family: "Montserrat Subrayada", sans-serif;
+    font-family: 'Montserrat Subrayada', sans-serif;
   }
 
   body {
@@ -25,6 +25,18 @@
 }
 
 @layer components {
+  .headerWithBurger:has(input:checked) div[data-menu='open'] {
+    @apply visible;
+  }
+  .headerWithBurger:has(input:checked) div[data-menu='close'] {
+    @apply hidden;
+  }
+  .headerWithBurger:has(input:not(:checked)) div[data-menu='open'] {
+    @apply hidden;
+  }
+  .headerWithBurger:has(input:not(:checked)) div[data-menu='close'] {
+    @apply visible;
+  }
   .headerWithBurger:has(input:checked) aside {
     @apply translate-x-0;
   }
