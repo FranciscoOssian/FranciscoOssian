@@ -1,13 +1,14 @@
-import React from 'react';
-import { marked } from 'marked';
-import './styles.scss';
+import React from "react";
+import { marked } from "marked";
+import "./styles.scss";
 
 function escapeXml(xml: string) {
-  return xml.replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
+  return xml
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
 
 // Override function
@@ -25,9 +26,8 @@ const renderer = {
     `;
 
     return html.trim();
-  }
+  },
 };
-
 
 marked.use({ renderer });
 
@@ -35,7 +35,10 @@ function MdToHTML({ text }: { text: string }) {
   const htmlText = marked.parse(text);
 
   return (
-    <div className="markdown-body" dangerouslySetInnerHTML={{ __html: htmlText }} />
+    <div
+      className="markdown-body text-white"
+      dangerouslySetInnerHTML={{ __html: htmlText }}
+    />
   );
 }
 
