@@ -1,9 +1,9 @@
-import yamlToJSON from "../yaml";
+import yamlToJSON from '../yaml';
 
-const endpoint = "https://api.github.com/graphql";
+const endpoint = 'https://api.github.com/graphql';
 const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
 
-const MAKE_GET_SETTING_PARAM = (repo: string, filePath: string) => `
+const MAKE_GET_SETTINGS_PARAM = (repo: string, filePath: string) => `
   query {
     viewer {
       repository(name: "${repo}") {
@@ -30,20 +30,16 @@ const MAKE_GET_SETTING_PARAM = (repo: string, filePath: string) => `
   }
 `;
 
-async function getPageFromGithub(
-  config: RequestInit,
-  REPO_NAME: string,
-  FILE_FOLDER: string
-) {
+async function getSettingsFromGithub(config: RequestInit, REPO_NAME: string, FILE_FOLDER: string) {
   try {
     const response = await fetch(endpoint, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        query: MAKE_GET_SETTING_PARAM(REPO_NAME, FILE_FOLDER),
+        query: MAKE_GET_SETTINGS_PARAM(REPO_NAME, FILE_FOLDER),
       }),
       ...config,
     });
@@ -64,26 +60,6 @@ async function getPageFromGithub(
   }
 }
 
-export default async function getSetting(
-  REPO_NAME: string,
-  FILE_FOLDER: string
-): Promise<
-  | {
-      error: boolean;
-      data: any;
-      content?: undefined;
-      lastCommit?: undefined;
-    }
-  | {
-      content: object;
-      lastCommit: any;
-      error?: undefined;
-      data?: undefined;
-    }
-> {
-  return getPageFromGithub(
-    { next: { revalidate: 86400 } },
-    REPO_NAME || "",
-    FILE_FOLDER || ""
-  );
+export default async function getSetting(REPO_NAME: string, FILE_FOLDER: string): Promise<any> {
+  return getSettingsFromGithub({ next: { revalidate: 86400 } }, REPO_NAME || '', FILE_FOLDER || '');
 }
