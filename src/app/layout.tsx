@@ -10,7 +10,6 @@ const inter = Inter({ subsets: ['latin'] });
 
 async function getPageData(): Promise<any> {
   const c = await getSetting('foln-cms-md', 'pages/settings.yaml');
-  console.log(c);
   return c;
 }
 
