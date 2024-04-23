@@ -40,8 +40,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Post({ params }: { params: { id: string } }) {
   const { markdonw, lastCommit } = await getPage('foln-cms-md', `pages/blog/${params.id}`);
   return (
-    <PageFrame>
-      <>last edit: {formatarData(`${lastCommit.target.history.edges[0].node.committedDate}`)}</>
+    <PageFrame className="text-white">
+      <div>
+        last edit: {formatarData(`${lastCommit.target.history.edges[0].node.committedDate}`)}
+      </div>
       <MdToHTML text={markdonw[0].object.text} />
     </PageFrame>
   );
