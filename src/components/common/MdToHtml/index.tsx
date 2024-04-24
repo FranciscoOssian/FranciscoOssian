@@ -48,8 +48,8 @@ const renderer = {
     else
       return `
       ${used ? '' : '</details>'}
-      <details>
-        <summary class="marker:color-primary relative mt-[24px] mb-[16px] cursor-pointer select-none">${blockLevel(
+      <details class="mb-2 pl-[20px]">
+        <summary class="ml-[-20px] marker:color-primary relative mt-[24px] mb-[34px] cursor-pointer select-none">${blockLevel(
           'absolute -top-[30px] left-[20px]'
         )}</summary>
     `;
@@ -62,7 +62,10 @@ async function MdToHTML({ text }: { text: string }) {
   let htmlText = await marked.parse(text);
 
   return (
-    <div className="markdown-body text-white" dangerouslySetInnerHTML={{ __html: htmlText }} />
+    <div>
+      <input type="checkbox" id="h2-toggle" className="hidden" />
+      <div className="markdown-body text-white" dangerouslySetInnerHTML={{ __html: htmlText }} />
+    </div>
   );
 }
 
