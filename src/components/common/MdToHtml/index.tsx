@@ -1,15 +1,28 @@
-import React from "react";
-import { marked } from "marked";
-import "./styles.scss";
+import React from 'react';
+import { marked } from 'marked';
+import './styles.scss';
 
 function escapeXml(xml: string) {
   return xml
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;");
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
 }
+
+function slug(text: string) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/--+/g, '-')
+    .trim();
+}
+
+const used = false;
 
 // Override function
 const renderer = {
@@ -27,18 +40,29 @@ const renderer = {
 
     return html.trim();
   },
+
+  heading(text: string, level: number) {
+    const blockLevel = (style: string) =>
+      `<h${level} class="${style}" id=${slug(text)}>${text}</h${level}>`;
+    if (level > 2 || level === 1) return blockLevel('');
+    else
+      return `
+      ${used ? '' : '</details>'}
+      <details>
+        <summary class="marker:color-primary relative mt-[24px] mb-[16px] cursor-pointer select-none">${blockLevel(
+          'absolute -top-[30px] left-[20px]'
+        )}</summary>
+    `;
+  },
 };
 
 marked.use({ renderer });
 
-function MdToHTML({ text }: { text: string }) {
-  const htmlText = marked.parse(text);
+async function MdToHTML({ text }: { text: string }) {
+  let htmlText = await marked.parse(text);
 
   return (
-    <div
-      className="markdown-body text-white"
-      dangerouslySetInnerHTML={{ __html: htmlText }}
-    />
+    <div className="markdown-body text-white" dangerouslySetInnerHTML={{ __html: htmlText }} />
   );
 }
 
