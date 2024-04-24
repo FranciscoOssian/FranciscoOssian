@@ -26,16 +26,16 @@
 
 @layer components {
   .headerWithBurger:has(input:checked) div[data-menu='open'] {
-    @apply visible;
+    @apply hidden;
   }
   .headerWithBurger:has(input:checked) div[data-menu='close'] {
-    @apply hidden;
+    @apply visible;
   }
   .headerWithBurger:has(input:not(:checked)) div[data-menu='open'] {
-    @apply hidden;
+    @apply visible;
   }
   .headerWithBurger:has(input:not(:checked)) div[data-menu='close'] {
-    @apply visible;
+    @apply hidden;
   }
   .headerWithBurger:has(input:checked) aside {
     @apply translate-x-0;
