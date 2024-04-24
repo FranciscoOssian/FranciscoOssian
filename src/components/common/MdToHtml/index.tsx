@@ -13,15 +13,6 @@ const highlightCode = (code: string, language: string) => {
   return hljs.highlightAuto(code).value;
 };
 
-function escapeXml(xml: string) {
-  return xml
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
-}
-
 function slug(text: string) {
   return text
     .toLowerCase()
@@ -37,7 +28,7 @@ const used = false;
 
 // Override function
 const renderer = {
-  code(text: string, lang: string) {
+  code(text: string, lang: string | undefined) {
     const html = `
       <div class="terminal-frame">
         <div class="mac-window-controls">
