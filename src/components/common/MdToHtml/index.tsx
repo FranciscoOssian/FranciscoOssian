@@ -1,15 +1,17 @@
 import React from 'react';
 import { marked } from 'marked';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/default.css';
 import './styles.scss';
 
-function escapeXml(xml: string) {
-  return xml
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
-}
+const highlightCode = (code: string, language: string) => {
+  if (language && hljs.getLanguage(language)) {
+    try {
+      return hljs.highlight(language, code).value;
+    } catch (err) {}
+  }
+  return hljs.highlightAuto(code).value;
+};
 
 function slug(text: string) {
   return text
@@ -26,7 +28,7 @@ const used = false;
 
 // Override function
 const renderer = {
-  code(text: string) {
+  code(text: string, lang: string | undefined) {
     const html = `
       <div class="terminal-frame">
         <div class="mac-window-controls">
@@ -34,7 +36,10 @@ const renderer = {
           <input type="radio" name="window-control" class="mac-window-button minimize">
           <input type="radio" name="window-control" class="mac-window-button maximize">
         </div>
-        <pre class="terminal-frame-text">${escapeXml(text)}</pre>
+        <pre class="terminal-frame-text"><code lang="${lang ?? 'js'}">${highlightCode(
+      text,
+      lang ?? 'js'
+    )}</code></pre>
       </div>
     `;
 
