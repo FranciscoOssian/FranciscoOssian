@@ -2,21 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&display=swap');
-
 :root {
   --primary: #79f085;
   --secondary: #7f21ca;
-  @apply 2xl:text-2xl;
 }
 
 @layer base {
   .bg-header {
     background-color: #3c3c3c;
-  }
-
-  .font-montserrat-subrayada {
-    font-family: 'Montserrat Subrayada', sans-serif;
   }
 
   body {
