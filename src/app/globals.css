@@ -7,13 +7,18 @@
   --secondary: #7f21ca;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 @layer base {
   .bg-header {
     background-color: #3c3c3c;
   }
 
   body {
-    background-color: #010101;
+    background-color: #02010c;
   }
 }
 

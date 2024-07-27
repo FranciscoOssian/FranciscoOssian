@@ -1,30 +1,16 @@
+'use client';
+
 import Image from 'next/image';
+import useDynamicLib from '@/services/DynamicLib/useDynamicLib';
 
 interface CardProps {
-  headerText?: string;
-  subHeaderText?: string;
-  style?: 'outlined' | 'evaluated' | 'filled';
-  titleText?: string;
-  subTitleText?: string;
-  supportingText?: string;
-  icon?: string;
+  headerText: string;
+  subHeaderText: string;
+  titleText: string;
+  subTitleText: string;
+  supportingText: string;
   media?: string;
-  backgroundState?: 'enabled' | 'hovered' | 'focused' | 'pressed' | 'dragged';
 }
-
-const InternalLayout: React.FC<React.PropsWithChildren<React.HTMLAttributes<{}>>> = ({
-  children,
-  className,
-  ...rest
-}) => {
-  return (
-    <div className="w-full flex justify-center items-center">
-      <div className={`w-[157px] ${className}`} {...rest}>
-        {children}
-      </div>
-    </div>
-  );
-};
 
 const Card = ({
   headerText,
@@ -33,24 +19,45 @@ const Card = ({
   subTitleText,
   supportingText,
   media,
-  icon,
-}: CardProps) => (
-  <div className="rounded-xl bg-[#FEF7FF] h-88 w-44 py-7">
-    <div id="header-text" className="text-center font-bold bg-slate-600 text-white w-full h-full">
-      <div>{headerText}</div>
-      <div>{subHeaderText}</div>
+}: CardProps) => {
+  const Header = () => (
+    <div id="header" className="w-full">
+      <p className="uppercase text-xs font-bold">{headerText}</p>
+      <small className="text-gray-400">{subHeaderText}</small>
+      <h4 className="text-xl font-bold mt-1">{titleText}</h4>
     </div>
-    {media && (
-      <div id="media" className="w-full relative h-[143px]">
-        <Image src={media} alt={`${headerText} media`} style={{ objectFit: 'cover' }} fill />
-      </div>
-    )}
-    <InternalLayout id="text" className="text-justify">
-      <div>{titleText}</div>
-      <div>{subTitleText}</div>
-      <div>{supportingText}</div>
-    </InternalLayout>
-  </div>
-);
+  );
 
+  let Content = () => (
+    <div className="size-52 flex flex-col justify-center items-center gap-2 p-4">
+      <Header />
+      {media && (
+        <div
+          id="media"
+          className="bg-white shadow-[0_12px_15px_rgba(0,0,0,0.1)] relative size-44 aspect-[270/177] rounded-2xl overflow-hidden">
+          <Image src={media} alt={`${headerText} media`} style={{ objectFit: 'cover' }} fill />
+        </div>
+      )}
+    </div>
+  );
+
+  const motionLib = useDynamicLib(import('framer-motion'));
+
+  if (!motionLib)
+    return (
+      <div className="relative size-52">
+        <div className="overflow-hidden rounded-xl text-white bg-[#18181B] py-2">
+          <Content />
+        </div>
+      </div>
+    );
+
+  return (
+    <div className="hover:border-gray-900 border-2 rounded-3xl transition-all relative size-52">
+      <div className="overflow-hidden rounded-xl text-white py-2">
+        <Content />
+      </div>
+    </div>
+  );
+};
 export default Card;

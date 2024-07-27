@@ -4,23 +4,33 @@ import Image from 'next/image';
 import { ButtonMotion, Slide, Above as AboveMotion, SlideNav } from './motion';
 import { useState } from 'react';
 import React from 'react';
+import Link from 'next/link';
 
 const Nav = () => {
   return (
     <div id="top" className="flex items-center justify-center w-full">
       <div className="max-w-[61.81rem] w-[100%] flex max-xl:justify-around justify-between items-center gap-4">
         <div className="relative w-[256px] h-[26px] max-sm:w-100px] max-sm:h-[25px]">
-          <Image src="/Franciscossian.svg" fill alt="francisco ossian" />
+          <Link href="/">
+            <Image src="/Franciscossian.svg" fill alt="francisco ossian" />
+          </Link>
         </div>
         <div className="flex text-white text-xl font-bold gap-4 font-space-grotesk">
-          <div>Blog</div>
-          <div>Work</div>
-          <div>Home</div>
+          <div>
+            <Link href="/blog">Blog</Link>
+          </div>
+          <div>
+            <Link href="#projetos">Work</Link>
+          </div>
+          <div>
+            <Link href="/">Home</Link>
+          </div>
         </div>
       </div>
     </div>
   );
 };
+
 const Content = () => (
   <div id="content" className="text-white flex flex-col justify-center items-center h-full">
     <div className="max-sm:text-5xl max-sm:mb-3 font-bold font-space-grotesk text-6xl leading-[82px] text-center break-all">
@@ -36,9 +46,11 @@ const Content = () => (
     </div>
     <div className="font-black text-center">Front-End | Back-End | Mobile | Cloud | Automações</div>
     <ButtonMotion>
-      <button className="base-button font-bold px-14 py-1 mt-4">
-        Entre em contato e inicie seu projeto hoje
-      </button>
+      <Link href="https://api.whatsapp.com/send/?phone=558592048568&text&type=phone_number&app_absent=0">
+        <button className="base-button font-bold px-14 py-1 mt-4">
+          Entre em contato e inicie seu projeto hoje
+        </button>
+      </Link>
     </ButtonMotion>
     <div className="size-40 max-xl:size-16"></div>
     <div id="img-me" className="absolute -bottom-4">

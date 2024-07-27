@@ -17,7 +17,7 @@ const UlComponent: React.FC<UlComponentProps> = ({ items, className }) => (
   <ul
     className={`max-xl:w-[173px] ${
       typeof items?.[0] === 'string' ? 'w-[216px]' : '!flex-row'
-    } ${className}`}>
+    } ${className} isolate`}>
     {items.map((item, i) => (
       <li
         className={`${typeof items?.[0] === 'string' ? 'max-xl:w-[155px] w-[198px]' : ''} `}
