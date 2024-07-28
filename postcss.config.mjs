@@ -1,8 +1,22 @@
-/** @type {import('postcss-load-config').Config} */
-const config = {
-  plugins: {
-    tailwindcss: {},
+const cssnano = [
+  'cssnano',
+  {
+    preset: 'advanced',
+    discardComments: { removeAll: true },
+    normalizeWhitespace: true,
+    mergeLonghand: true,
+    minifySelectors: true,
+    reduceTransforms: true,
+    convertValues: true,
+    reduceIdents: false,
   },
-};
+];
 
-export default config;
+module.exports = {
+  plugins: [
+    'postcss-import',
+    'tailwindcss',
+    'autoprefixer',
+    ...(process.env.NODE_ENV === 'production' ? [cssnano] : []),
+  ],
+};
