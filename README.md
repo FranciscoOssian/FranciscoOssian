@@ -1,6 +1,5 @@
 # Hi there 👋💻 <img width="5px" height="25px" src="https://imgur.com/wuDhMTc.gif"></img>
 >  <kbd> <br> [Home](https://www.foln.dev) <br> </kbd> >
->  <kbd> <br> [About](https://www.foln.dev) <br> </kbd> >
 >  <kbd> <br> [Blog](https://www.foln.dev/blog) <br> </kbd> >
 >  <kbd> <br> [Projects](https://www.foln.dev/#projetos) <br> </kbd> >
 <p align="right">
