@@ -50,7 +50,7 @@ async function getPageFromGithub(
   config: RequestInit,
   REPO_NAME: string,
   PAGE_FOLDER: string
-): Promise<resp> {
+): Promise<Resp> {
   try {
     const data = await requestGraphQL(MAKE_GET_PAGE_PARAM(REPO_NAME, PAGE_FOLDER), config);
 
