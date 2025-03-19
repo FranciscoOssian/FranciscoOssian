@@ -1,20 +1,9 @@
+import AboveMin from '@/components/common/AboveMin';
 import MdToHTML from '@/components/common/MdToHtml';
 import PageFrame from '@/components/common/PageFrame';
 import getPage from '@/services/github/getPage';
 import yamlToJSON from '@/services/yaml';
 import { Metadata } from 'next';
-
-function formatarData(dataISO: string) {
-  const data = new Date(dataISO);
-  const dia = String(data.getDate()).padStart(2, '0');
-  const mes = String(data.getMonth() + 1).padStart(2, '0');
-  const ano = data.getFullYear();
-  const horas = String(data.getHours()).padStart(2, '0');
-  const minutos = String(data.getMinutes()).padStart(2, '0');
-  const segundos = String(data.getSeconds()).padStart(2, '0');
-
-  return `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
-}
 
 type Props = {
   params: { id: string };
@@ -23,12 +12,21 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { yaml } = await getPage('foln-cms-md', `pages/blog/${params.id}`);
+  if (!yaml)
+    return {
+      title: 'Francisco Ossian - Blog',
+      authors: [{ name: 'Francisco Ossian', url: 'https://foln.dev' }],
+      openGraph: {
+        url: `https://www.foln.dev/blog/`,
+      },
+    };
+
   const settings = await yamlToJSON(yaml[0].object.text);
 
   return {
     title: settings?.title,
     description: settings?.description,
-    authors: settings?.authors ?? 'Francisco Ossian',
+    authors: settings?.authors ?? [{ name: 'Francisco Ossian', url: 'https://foln.dev' }],
     openGraph: {
       url: settings?.OG?.url ?? `https://www.foln.dev/blog/${params.id}`,
       title: settings?.OG?.title,
@@ -38,13 +36,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Post({ params }: { params: { id: string } }) {
-  const { markdonw, lastCommit } = await getPage('foln-cms-md', `pages/blog/${params.id}`);
+  const { yaml, markdonw, lastCommit } = await getPage('foln-cms-md', `pages/blog/${params.id}`);
+  const settings = await yamlToJSON(yaml[0].object.text);
   return (
-    <PageFrame className="text-white">
-      <div>
-        last edit: {formatarData(`${lastCommit.target.history.edges[0].node.committedDate}`)}
-      </div>
-      <MdToHTML text={markdonw[0].object.text} />
-    </PageFrame>
+    <>
+      <AboveMin title={settings?.title} />
+      <PageFrame>
+        <div className="text-white">
+          last edit: {`${lastCommit.target.history.edges[0].node.committedDate}`}
+        </div>
+        <MdToHTML text={markdonw[0].object.text} />
+      </PageFrame>
+    </>
   );
 }

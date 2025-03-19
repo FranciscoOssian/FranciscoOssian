@@ -1,7 +1,5 @@
-import yamlToJSON from "../yaml";
-
-const endpoint = "https://api.github.com/graphql";
-const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+import yamlToJSON from '../yaml';
+import { requestGraphQL } from './graphqlClient';
 
 const MAKE_GET_POST_PARAM = (repo: string, postFolder: string) => `
   query {
@@ -37,39 +35,18 @@ const MAKE_GET_POST_PARAM = (repo: string, postFolder: string) => `
   }
 `;
 
-async function getPostFromGithub(
-  config: RequestInit,
-  REPO_NAME: string,
-  POST_FOLDER: string
-) {
+async function getPostFromGithub(config: RequestInit, REPO_NAME: string, POST_FOLDER: string) {
   try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        query: MAKE_GET_POST_PARAM(REPO_NAME, POST_FOLDER),
-      }),
-      ...config,
-    });
+    const data = await requestGraphQL(MAKE_GET_POST_PARAM(REPO_NAME, POST_FOLDER), config);
 
-    const data = await response.json();
-
-    if (!data || !data.data) {
-      return { error: true, data: data.errors };
-    }
     return {
-      content: data.data.viewer.repository.postFolder.entries.find(
-        (e: any) => e.name === "content.md"
-      ).object.text,
+      content: data.viewer.repository.postFolder.entries.find((e: any) => e.name === 'content.md')
+        .object.text,
       settings: await yamlToJSON(
-        data.data.viewer.repository.postFolder.entries.find(
-          (e: any) => e.name === "settings.yaml"
-        ).object.text
+        data.viewer.repository.postFolder.entries.find((e: any) => e.name === 'settings.yaml')
+          .object.text
       ),
-      lastCommit: data.data.viewer.repository.lastCommit,
+      lastCommit: data.viewer.repository.lastCommit,
       name: POST_FOLDER,
     };
   } catch (error) {
@@ -84,8 +61,8 @@ export default async function getPost(
 ): Promise<{ name: string; content: any; settings: any; lastCommit: any }> {
   const data = await getPostFromGithub(
     { next: { revalidate: 86400 } },
-    REPO_NAME || "",
-    POST_FOLDER || ""
+    REPO_NAME || '',
+    POST_FOLDER || ''
   );
 
   return data as { name: string; content: any; settings: any; lastCommit: any };

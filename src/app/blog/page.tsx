@@ -1,7 +1,10 @@
-import List from '@/components/common/List';
-import listPages from '@/services/github/listPages';
+import AboveMin from '@/components/common/AboveMin';
+import Card from '@/components/common/Card';
+import PageFrame from '@/components/common/PageFrame';
 import getPage from '@/services/github/getPage';
+import listPages from '@/services/github/listPages';
 import yamlToJSON from '@/services/yaml';
+import Link from 'next/link';
 
 export default async function Home() {
   let list: any = await listPages('foln-cms-md', 'blog');
@@ -28,7 +31,24 @@ export default async function Home() {
 
   return (
     <main>
-      <List background="transparent" list={list} />
+      <AboveMin title="Blog" />
+      <PageFrame>
+        <ul className="m-4 flex gap-3 flex-wrap justify-between">
+          {list.map((item: any, i: number) => (
+            <li key={i}>
+              <Link href={`${item.link}`}>
+                <Card
+                  headerText={item.title}
+                  subHeaderText={item.description}
+                  titleText={item.keywords}
+                  subTitleText={''}
+                  supportingText={''}
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </PageFrame>
       <br />
     </main>
   );
