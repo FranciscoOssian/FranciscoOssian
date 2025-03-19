@@ -6,7 +6,7 @@ import { useState } from 'react';
 import React from 'react';
 import Link from 'next/link';
 
-const Nav = () => {
+export const Nav = () => {
   return (
     <div id="top" className="flex items-center justify-center w-full">
       <div className="max-w-[61.81rem] w-[100%] flex max-xl:justify-around justify-between items-center gap-4">
@@ -105,7 +105,7 @@ const Hands = () => {
   );
 };
 
-const ImageBG = () => (
+export const ImageBG = () => (
   <Image
     src={'https://media.starlightcms.io/workspaces/foln/folndev/original/bgjpg-874pe8uqj4.jpg'}
     fill
