@@ -64,7 +64,10 @@ const renderer = {
 marked.use({ renderer });
 
 async function MdToHTML({ text }: { text: string }) {
-  let htmlText = await marked.parse(text);
+  let htmlText = '';
+  try {
+    htmlText = await marked.parse(text);
+  } catch (e) {}
 
   return (
     <div>
