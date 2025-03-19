@@ -19,8 +19,7 @@ module.exports = {
   async headers() {
     return [
       {
-        source:
-          '/_next/static/chunks/_app-pages-browser_node_modules_framer-motion_dist_es_index_mjs.js',
+        source: '/_next/static/chunks/870.1cf5f10c8827c183.js',
         headers: [
           {
             key: 'Cache-Control',

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import useDynamicLib from '@/services/DynamicLib/useDynamicLib';
-import { HTMLMotionProps } from 'framer-motion';
+import { HTMLMotionProps } from 'motion/react';
 
 type SlideProps = {
   direction: 'left' | 'right';
@@ -14,7 +14,7 @@ export const Slide = ({ direction, children, className, ...rest }: SlideProps) =
   const initialX = direction === 'left' ? '100%' : '-100%';
   const animateX = '0%';
 
-  const motionLib = useDynamicLib(import('framer-motion'));
+  const motionLib = useDynamicLib(import('motion/react'));
 
   if (!motionLib) return <div>{children}</div>;
 
@@ -35,7 +35,7 @@ export const SlideNav = ({ direction, children, className, ...rest }: SlideProps
   const initialY = direction === 'left' ? '100%' : '-100%';
   const animateY = '0%';
 
-  const motionLib = useDynamicLib(import('framer-motion'));
+  const motionLib = useDynamicLib(import('motion/react'));
 
   if (!motionLib) return <div>{children}</div>;
 
@@ -53,7 +53,7 @@ export const SlideNav = ({ direction, children, className, ...rest }: SlideProps
 };
 
 export const ButtonMotion = ({ children }: any) => {
-  const motionLib = useDynamicLib(import('framer-motion'));
+  const motionLib = useDynamicLib(import('motion/react'));
 
   if (!motionLib) return <>{children}</>;
   return (
@@ -62,7 +62,7 @@ export const ButtonMotion = ({ children }: any) => {
 };
 
 export const Above = ({ children, className, onLeave, onEnter }: any) => {
-  const motionLib = useDynamicLib(import('framer-motion'));
+  const motionLib = useDynamicLib(import('motion/react'));
   if (!motionLib) return <div className={className}>{children}</div>;
 
   return (
