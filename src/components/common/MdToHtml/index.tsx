@@ -67,7 +67,12 @@ async function MdToHTML({ text }: { text: string }) {
   let htmlText = '';
   try {
     htmlText = await marked.parse(text);
-  } catch (e) {}
+  } catch (e) {
+    htmlText = await marked.parse(text);
+    /* For some reason unknown until now the first attempt gave a regex error,
+    I made a second attempt at a temporary solution as no problem found
+    in the second attempt works. */
+  }
 
   return (
     <div>
