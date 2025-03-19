@@ -1,5 +1,4 @@
-const endpoint = "https://api.github.com/graphql";
-const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+import { requestGraphQL } from './graphqlClient';
 
 const MAKE_GET_PAGE_PARAM = (repo: string, pageFolder: string) => `
   query {
@@ -40,7 +39,7 @@ type FileObject = {
   object: any;
 };
 
-type resp = {
+type Resp = {
   markdonw: FileObject[];
   yaml: FileObject[];
   lastCommit: any;
@@ -53,33 +52,16 @@ async function getPageFromGithub(
   PAGE_FOLDER: string
 ): Promise<resp> {
   try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        query: MAKE_GET_PAGE_PARAM(REPO_NAME, PAGE_FOLDER),
-      }),
-      ...config,
-    });
-
-    const data = await response.json();
-
-    if (!data || !data.data) {
-      throw { error: true, data: data.errors };
-    }
+    const data = await requestGraphQL(MAKE_GET_PAGE_PARAM(REPO_NAME, PAGE_FOLDER), config);
 
     return {
-      markdonw: data.data.viewer.repository?.pageFolder?.entries?.filter(
-        (e: { name: string }) => e.name.includes(".md")
+      markdonw: data.viewer.repository?.pageFolder?.entries?.filter((e: { name: string }) =>
+        e.name.includes('.md')
       ),
-      yaml: data.data.viewer.repository?.pageFolder?.entries?.filter(
-        (e: { name: string }) =>
-          e.name.includes(".yaml") || e.name.includes(".yml")
+      yaml: data.viewer.repository?.pageFolder?.entries?.filter(
+        (e: { name: string }) => e.name.includes('.yaml') || e.name.includes('.yml')
       ),
-      lastCommit: data.data.viewer.repository.lastCommit,
+      lastCommit: data.viewer.repository.lastCommit,
       path: PAGE_FOLDER,
     };
   } catch (error) {
@@ -88,14 +70,11 @@ async function getPageFromGithub(
   }
 }
 
-export default async function getPage(
-  REPO_NAME: string,
-  PAGE_FOLDER: string
-): Promise<resp> {
+export default async function getPage(REPO_NAME: string, PAGE_FOLDER: string): Promise<Resp> {
   const data = await getPageFromGithub(
     { next: { revalidate: 86400 } },
-    REPO_NAME || "",
-    PAGE_FOLDER || ""
+    REPO_NAME || '',
+    PAGE_FOLDER || ''
   );
 
   return data;
