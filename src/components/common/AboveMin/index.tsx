@@ -4,32 +4,7 @@ import Image from 'next/image';
 import { Above as AboveMotion, SlideNav } from './motion';
 import { useState } from 'react';
 import React from 'react';
-import Link from 'next/link';
-
-const Nav = () => {
-  return (
-    <div id="top" className="flex items-center justify-center w-full">
-      <div className="max-w-[61.81rem] w-[100%] flex max-xl:justify-around justify-between items-center gap-4">
-        <div className="relative w-[256px] h-[26px] max-sm:w-100px] max-sm:h-[25px]">
-          <Link href="/">
-            <Image src="/Franciscossian.svg" fill alt="francisco ossian" />
-          </Link>
-        </div>
-        <div className="flex text-white text-xl font-bold gap-4 font-space-grotesk">
-          <div>
-            <Link href="/blog">Blog</Link>
-          </div>
-          <div>
-            <Link href="/#projetos">Work</Link>
-          </div>
-          <div>
-            <Link href="/">Home</Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+import { ImageBG, Nav } from '../Above';
 
 const InternalLayout = ({ children, className }: { children: any; className: string }) => {
   return (
@@ -61,19 +36,6 @@ const Content = ({ title }: { title: string }) => (
       </div>
     </InternalLayout>
   </div>
-);
-
-const ImageBG = () => (
-  <Image
-    src={'https://media.starlightcms.io/workspaces/foln/folndev/original/bgjpg-874pe8uqj4.jpg'}
-    fill
-    alt=""
-    priority
-    style={{
-      zIndex: -10,
-      objectFit: 'cover',
-    }}
-  />
 );
 
 const Above = ({ title }: { title: string }) => {
