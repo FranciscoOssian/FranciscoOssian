@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { Above as AboveMotion, SlideNav } from './motion';
 import { useState } from 'react';
 import React from 'react';
 import { ImageBG, Nav } from '../Above';
+import { SlideNav, Above as AboveMotion } from '../Above/motion';
 
 const InternalLayout = ({ children, className }: { children: any; className: string }) => {
   return (
