@@ -39,9 +39,9 @@ body {
   }
 
   .base-button {
-    @apply select-none cursor-pointer rounded-[2.1875rem] text-center bg-primary text-secondary hover:bg-secondary hover:text-primary;
+    @apply select-none cursor-pointer rounded-[2.1875rem] text-center bg-primary text-black hover:bg-secondary;
   }
   .base-button-active {
-    @apply select-none cursor-pointer rounded-[2.1875rem] text-center bg-secondary text-primary hover:bg-primary hover:text-secondary;
+    @apply select-none cursor-pointer rounded-[2.1875rem] text-center bg-secondary text-black hover:bg-primary;
   }
 }

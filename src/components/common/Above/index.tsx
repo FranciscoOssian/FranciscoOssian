@@ -50,13 +50,12 @@ const Content = () => (
       <br />
     </div>
     <div className="font-black text-center">Front-End | Back-End | Mobile | Cloud | Automações</div>
-    <ButtonMotion>
-      <Link href="https://api.whatsapp.com/send/?phone=558592048568&text&type=phone_number&app_absent=0">
-        <button className="base-button font-bold px-14 py-1 mt-4">
-          Entre em contato e inicie seu projeto hoje
-        </button>
-      </Link>
-    </ButtonMotion>
+
+    <Link href="https://api.whatsapp.com/send/?phone=558592048568&text&type=phone_number&app_absent=0">
+      <button className="base-button font-bold px-14 py-3 mt-4">
+        Entre em contato e inicie seu projeto hoje
+      </button>
+    </Link>
     <div className="size-40 max-xl:size-16"></div>
     <div id="img-me" className="absolute -bottom-5">
       <div className="max-[416px]:hidden max-sm:size-52 -z-[1] max-sm:translate-y-5 max-xl:size-48 size-44 relative">

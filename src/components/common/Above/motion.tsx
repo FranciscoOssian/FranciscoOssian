@@ -52,15 +52,6 @@ export const SlideNav = ({ direction, children, className, ...rest }: SlideProps
   );
 };
 
-export const ButtonMotion = ({ children }: any) => {
-  const motionLib = useDynamicLib(import('motion/react'));
-
-  if (!motionLib) return <>{children}</>;
-  return (
-    <motionLib.motion.div whileHover={{ scale: 1.01, rotate: 1 }}>{children}</motionLib.motion.div>
-  );
-};
-
 export const Above = ({ children, className, onLeave, onEnter }: any) => {
   const motionLib = useDynamicLib(import('motion/react'));
   if (!motionLib) return <div className={className}>{children}</div>;

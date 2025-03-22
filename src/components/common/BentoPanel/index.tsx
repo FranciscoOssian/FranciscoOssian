@@ -36,8 +36,8 @@ const Box = ({ title, text, background, links }: BentoPanelProps) => (
       <div className="px-[2.6875rem] py-[1.3125rem] w-full flex justify-between items-center h-full backdrop-brightness-[0.25]">
         {/* Texts */}
         <div className="lg:h-full lg:w-2/3 flex justify-around flex-col">
-          <div className="font-bold text-6xl">{title}</div>
-          <div className="font-semibold">{text}</div>
+          <div className="font-bold text-6xl text-secondary uppercase">{title}</div>
+          <div className="font-semibold w-3/5 leading-5">{text}</div>
         </div>
         {/* Links */}
         <div className="max-lg:absolute right-0 -bottom-[3.125rem]">
