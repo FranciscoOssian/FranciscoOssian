@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ButtonMotion, Slide, Above as AboveMotion, SlideNav } from './motion';
+import { Slide, Above as AboveMotion, SlideNav } from './motion';
 import { useState } from 'react';
 import React from 'react';
 import Link from 'next/link';
