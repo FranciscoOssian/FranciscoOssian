@@ -33,7 +33,7 @@ export const Nav = () => {
 
 const Content = () => (
   <div id="content" className="text-white flex flex-col justify-center items-center h-full">
-    <div className="max-sm:text-5xl max-sm:mb-3 font-bold font-space-grotesk text-6xl leading-[82px] text-center break-all">
+    <div className="max-sm:text-3xl max-sm:mb-3 font-bold font-space-grotesk text-6xl leading-[82px] text-center break-all">
       Desenvolvedor
       <br /> fullstack
     </div>
@@ -74,7 +74,7 @@ const Hands = () => {
   return (
     <div id="hands" className="max-[416px]:hidden">
       <Slide direction="right" className="absolute top-20 max-sm:top-16 -left-4 max-sm:-left-0">
-        <div className="size-52 max-sm:size-14 relative">
+        <div className="size-52 max-sm:size-24 relative">
           <Image
             src={
               'https://media.starlightcms.io/workspaces/foln/folndev/original/hand-write-apple-lrVt5ptraY.png'
@@ -88,7 +88,7 @@ const Hands = () => {
         </div>
       </Slide>
       <Slide direction="left" className="absolute top-20 max-sm:top-16 -right-4 max-sm:-right-0">
-        <div className="size-52 max-sm:size-14 relative">
+        <div className="size-52 max-sm:size-24 relative">
           <Image
             src={
               'https://media.starlightcms.io/workspaces/foln/folndev/original/hand-write-apple-lrVt5ptraY.png'
