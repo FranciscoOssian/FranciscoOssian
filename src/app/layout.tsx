@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { inter, space_grotesk, montserrat_subrayada } from './fonts';
+import { space_grotesk, inter } from './fonts';
 import getSetting from '@/services/github/getSetting';
 
 import './globals.css';
@@ -33,8 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${inter.className} ${space_grotesk.variable} ${montserrat_subrayada.variable}`}>
+      <body className={`${space_grotesk.variable} ${inter.className}`}>
         {children}
         <Footer
           card={{

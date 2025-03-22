@@ -33,11 +33,16 @@ export const Nav = () => {
 
 const Content = () => (
   <div id="content" className="text-white flex flex-col justify-center items-center h-full">
-    <div className="max-sm:text-3xl max-sm:mb-3 font-bold font-space-grotesk text-6xl leading-[82px] text-center break-all">
-      Desenvolvedor
-      <br /> fullstack
+    <div className="max-sm:text-4xl max-sm:mb-3 font-bold font-space-grotesk text-6xl leading-[60px] text-center break-all max-tablet:mt-24">
+      <span className="text-secondary">
+        Eleve seu negócio a <br /> outro nível
+      </span>{' '}
+      <span className="text-primary">
+        com um <br />
+        full stack de qualidade
+      </span>
     </div>
-    <div className="leading-5 text-center">
+    <div className="leading-5 text-center font-light mt-5">
       Desenvolvendo ideias e criando soluções.
       <br />
       Eu crio soluções, desenvolvo e dou manutenção.
@@ -53,8 +58,8 @@ const Content = () => (
       </Link>
     </ButtonMotion>
     <div className="size-40 max-xl:size-16"></div>
-    <div id="img-me" className="absolute -bottom-4">
-      <div className="max-[416px]:hidden max-sm:size-40 -z-[1] max-sm:translate-y-9 max-xl:size-64 size-48 relative">
+    <div id="img-me" className="absolute -bottom-5">
+      <div className="max-[416px]:hidden max-sm:size-52 -z-[1] max-sm:translate-y-5 max-xl:size-48 size-44 relative">
         <Image
           src={
             'https://media.starlightcms.io/workspaces/foln/folndev/original/me-drawpng-igv3cmob9t.png'
@@ -73,8 +78,8 @@ const Content = () => (
 const Hands = () => {
   return (
     <div id="hands" className="max-[416px]:hidden">
-      <Slide direction="right" className="absolute top-20 max-sm:top-16 -left-4 max-sm:-left-0">
-        <div className="size-52 max-sm:size-24 relative">
+      <Slide direction="right" className="absolute top-20 -left-4 max-sm:top-36 max-sm:-left-0">
+        <div className="size-48 max-sm:size-24 relative">
           <Image
             src={
               'https://media.starlightcms.io/workspaces/foln/folndev/original/hand-write-apple-lrVt5ptraY.png'
@@ -87,7 +92,7 @@ const Hands = () => {
           />
         </div>
       </Slide>
-      <Slide direction="left" className="absolute top-20 max-sm:top-16 -right-4 max-sm:-right-0">
+      <Slide direction="left" className="absolute top-20 max-sm:top-36 -right-4 max-sm:-right-0">
         <div className="size-52 max-sm:size-24 relative">
           <Image
             src={
@@ -128,7 +133,7 @@ const Above = () => {
         className="overflow-hidden w-svw flex justify-center items-center">
         <div
           id="above"
-          className="relative overflow-hidden pt-10 rounded-b-3xl max-xl:h-[788px] max-sm:h-[450px] h-[600px] max-xl:w-full w-[1280px]">
+          className="relative overflow-hidden pt-10 rounded-b-3xl max-xl:h-[788px] max-sm:h-[640px] h-[600px] max-xl:w-full w-[1280px]">
           <Nav />
           <Content />
           <Hands />
