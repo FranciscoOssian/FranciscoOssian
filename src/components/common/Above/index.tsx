@@ -1,10 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { Slide, Above as AboveMotion, SlideNav } from './motion';
+import { Above as AboveMotion, SlideNav } from './motion';
 import { useState } from 'react';
 import React from 'react';
 import Link from 'next/link';
+import { InternalLayout } from '../InternalLayout';
 
 export const Nav = () => {
   return (
@@ -32,82 +33,27 @@ export const Nav = () => {
 };
 
 const Content = () => (
-  <div id="content" className="text-white flex flex-col justify-center items-center h-full">
-    <div className="max-sm:text-4xl max-sm:mb-3 font-bold font-space-grotesk text-6xl leading-[60px] text-center break-all max-tablet:mt-24">
-      <span className="text-secondary">
-        Eleve seu negócio a <br /> outro nível
-      </span>{' '}
-      <span className="text-primary">
-        com um <br />
-        full stack de qualidade
-      </span>
-    </div>
-    <div className="leading-5 text-center font-light mt-5">
-      Desenvolvendo ideias e criando soluções.
-      <br />
-      Eu crio soluções, desenvolvo e dou manutenção.
-      <br />
-      <br />
-    </div>
-    <div className="font-black text-center">Front-End | Back-End | Mobile | Cloud | Automações</div>
+  <InternalLayout className="flex flex-col justify-center h-full text-white">
+    <div className="w-full max-tablet:max-w-[100%] max-w-[60%] flex flex-col gap-2">
+      <h1 className="text-6xl max-sm:text-4xl leading-[60px] font-bold w] mkin-w-[700px] text-primary">
+        <span className="text-secondary">Eleve seu negócio a outro nível</span> com um full stack de
+        qualidade
+      </h1>
 
-    <Link href="https://api.whatsapp.com/send/?phone=558592048568&text&type=phone_number&app_absent=0">
-      <button className="base-button font-bold px-14 py-3 mt-4">
-        Entre em contato e inicie seu projeto hoje
-      </button>
-    </Link>
-    <div className="size-40 max-xl:size-16"></div>
-    <div id="img-me" className="absolute -bottom-5">
-      <div className="max-[416px]:hidden max-sm:size-52 -z-[1] max-sm:translate-y-5 max-xl:size-48 size-44 relative">
-        <Image
-          src={
-            'https://media.starlightcms.io/workspaces/foln/folndev/original/me-drawpng-igv3cmob9t.png'
-          }
-          alt="me draw"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
-          sizes="(max-width: 416px) 100vw, (max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-        />
-      </div>
+      <p className="leading-[24px] font-light flex items-center">
+        Desenvolvendo ideias e criando soluções. Eu crio soluções, desenvolvo e dou manutenção.
+      </p>
+
+      <p className="font-bold">Front-End | Back-End | Mobile | Cloud | Automações</p>
+
+      <Link href="https://api.whatsapp.com/send/?phone=558592048568&text&type=phone_number&app_absent=0">
+        <button className="base-button font-bold px-14 py-3 mt-4">
+          Entre em contato e inicie seu projeto hoje
+        </button>
+      </Link>
     </div>
-  </div>
+  </InternalLayout>
 );
-
-const Hands = () => {
-  return (
-    <div id="hands" className="max-[416px]:hidden">
-      <Slide direction="right" className="absolute top-20 -left-4 max-sm:top-36 max-sm:-left-0">
-        <div className="size-48 max-sm:size-24 relative">
-          <Image
-            src={
-              'https://media.starlightcms.io/workspaces/foln/folndev/original/hand-write-apple-lrVt5ptraY.png'
-            }
-            className="scale-x-[-1]"
-            alt="emoji-hand"
-            fill
-            style={{ objectFit: 'cover' }}
-            sizes="(max-width: 640px) 14vw, 52vw"
-          />
-        </div>
-      </Slide>
-      <Slide direction="left" className="absolute top-20 max-sm:top-36 -right-4 max-sm:-right-0">
-        <div className="size-52 max-sm:size-24 relative">
-          <Image
-            src={
-              'https://media.starlightcms.io/workspaces/foln/folndev/original/hand-write-apple-lrVt5ptraY.png'
-            }
-            className=""
-            alt="emoji-hand"
-            fill
-            style={{ objectFit: 'cover' }}
-            sizes="(max-width: 640px) 14vw, 52vw"
-          />
-        </div>
-      </Slide>
-    </div>
-  );
-};
 
 export const ImageBG = () => (
   <Image
@@ -129,13 +75,12 @@ const Above = () => {
       <AboveMotion
         onEnter={() => setSecond(false)}
         onLeave={() => setSecond(true)}
-        className="overflow-hidden w-svw flex justify-center items-center">
+        className="w-svw flex justify-center items-center">
         <div
           id="above"
-          className="relative overflow-hidden pt-10 rounded-b-3xl max-xl:h-[788px] max-sm:h-[640px] h-[600px] max-xl:w-full w-[1280px]">
+          className="relative overflow-hidden pt-10 rounded-b-3xl h-[60svh] max-h-[700px] min-h-[550px] max-xl:w-full w-[1280px]">
           <Nav />
           <Content />
-          <Hands />
           <ImageBG />
         </div>
       </AboveMotion>

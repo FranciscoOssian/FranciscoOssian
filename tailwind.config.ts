@@ -16,7 +16,8 @@ const config: Config = {
     extend: {
       colors: {
         primary: '#86E38F',
-        secondary: '#5B5BF1',
+        secondary: '#CEE2FF',
+        tertiary: '#111618',
       },
       fontFamily: {
         'space-grotesk': ['var(--space_grotesk)', 'sans-serif'],
