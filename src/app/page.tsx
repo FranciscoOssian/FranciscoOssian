@@ -23,9 +23,9 @@ export default async function Home() {
   }));
 
   return (
-    <main className="flex flex-col gap-24 max-md:gap-0">
+    <main className="flex flex-col">
       <Above />
-      <PageFrame className="flex justify-center items-center flex-col gap-24">
+      <PageFrame className="flex justify-center items-center flex-col gap-20 mt-7">
         <SectionSlide>
           <BentoPanel
             title={settings.about.title}
@@ -50,7 +50,7 @@ export default async function Home() {
           <OpacityCard
             title={settings.what_i_do.title}
             text={settings.what_i_do.text}
-            image={{ src: '/bg-placeholder.jpg' }}
+            images={[{ src: '/bg-placeholder.jpg' }, { src: '/bg-placeholder.jpg' }]}
             button={{
               href: settings.what_i_do.link,
             }}
@@ -58,7 +58,7 @@ export default async function Home() {
         </SectionSlide>
         <SectionSlide className="flex w-full justify-center items-center flex-col gap-24">
           <h2 id="projetos" className="font-bold text-6xl leading-10 text-white">
-            Projetos
+            PROJETOS
           </h2>
           <ProjectsCard list={DATA} />
         </SectionSlide>
