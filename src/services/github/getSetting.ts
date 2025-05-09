@@ -1,7 +1,5 @@
 import yamlToJSON from '../yaml';
-
-const endpoint = 'https://api.github.com/graphql';
-const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+import { requestGraphQL } from './graphqlClient';
 
 const MAKE_GET_SETTINGS_PARAM = (repo: string, filePath: string) => `
   query {
@@ -32,27 +30,11 @@ const MAKE_GET_SETTINGS_PARAM = (repo: string, filePath: string) => `
 
 async function getSettingsFromGithub(config: RequestInit, REPO_NAME: string, FILE_FOLDER: string) {
   try {
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        query: MAKE_GET_SETTINGS_PARAM(REPO_NAME, FILE_FOLDER),
-      }),
-      ...config,
-    });
-
-    const data = await response.json();
-
-    if (!data || !data.data) {
-      return { error: true, data: data.errors };
-    }
+    const data = await requestGraphQL(MAKE_GET_SETTINGS_PARAM(REPO_NAME, FILE_FOLDER), config);
 
     return {
-      content: await yamlToJSON(data.data.viewer.repository?.file?.text),
-      lastCommit: data.data.viewer.repository.lastCommit,
+      content: await yamlToJSON(data.viewer.repository?.file?.text),
+      lastCommit: data.viewer.repository.lastCommit,
     };
   } catch (error) {
     console.error(`Error fetching data: ${error}`);

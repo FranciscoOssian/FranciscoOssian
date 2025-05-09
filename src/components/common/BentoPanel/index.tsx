@@ -32,12 +32,14 @@ const Links = ({ links }: BentoPanelProps) =>
 
 const Box = ({ title, text, background, links }: BentoPanelProps) => (
   <>
-    <div className="relative rounded-2xl w-full h-full">
-      <div className="px-[2.6875rem] py-[1.3125rem] w-full flex justify-between items-center h-full backdrop-brightness-[0.25]">
+    <div className="relative rounded-2xl w-full h-full ">
+      <div className="rounded-2xl px-[2.6875rem] py-[1.3125rem] w-full flex justify-between items-center h-full backdrop-brightness-[0.25]">
         {/* Texts */}
-        <div className="lg:h-full lg:w-2/3 flex justify-around flex-col">
-          <div className="font-bold text-6xl">{title}</div>
-          <div className="font-semibold">{text}</div>
+        <div className="lg:h-full w-[40%] max-md:w-full flex justify-around flex-col">
+          <div className="font-bold max-md:text-right text-6xl text-secondary uppercase">
+            {title}
+          </div>
+          <div className="font-semibold leading-5">{text}</div>
         </div>
         {/* Links */}
         <div className="max-lg:absolute right-0 -bottom-[3.125rem]">
@@ -57,9 +59,8 @@ const Box = ({ title, text, background, links }: BentoPanelProps) => (
 
 const BentoPanel = ({ title, text, links, background }: BentoPanelProps) => {
   return (
-    <section className="relative text-white flex justify-between items-center p-0 max-lg:mt-32 w-full h-[21.375rem] max-lg:h-full">
+    <section className="relative text-white flex justify-between items-center p-0 w-full h-[21.375rem] max-lg:h-full">
       <Box text={text} title={title} links={links} background={background} />
-      {/* Box */}
     </section>
   );
 };

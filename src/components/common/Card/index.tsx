@@ -41,7 +41,7 @@ const Card = ({
     </div>
   );
 
-  const motionLib = useDynamicLib(import('framer-motion'));
+  const motionLib = useDynamicLib(import('motion/react'));
 
   if (!motionLib)
     return (

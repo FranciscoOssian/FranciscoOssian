@@ -14,6 +14,11 @@ const config: Config = {
       ...defaultTheme.screens,
     },
     extend: {
+      colors: {
+        primary: '#86E38F',
+        secondary: '#CEE2FF',
+        tertiary: '#111618',
+      },
       fontFamily: {
         'space-grotesk': ['var(--space_grotesk)', 'sans-serif'],
       },

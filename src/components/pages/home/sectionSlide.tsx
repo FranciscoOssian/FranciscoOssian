@@ -3,7 +3,7 @@
 import useDynamicLib from '@/services/DynamicLib/useDynamicLib';
 
 export const SectionSlide = ({ children, className, id }: any) => {
-  const motionLib = useDynamicLib(import('framer-motion'));
+  const motionLib = useDynamicLib(import('motion/react'));
 
   if (!motionLib)
     return (

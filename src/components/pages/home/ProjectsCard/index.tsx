@@ -9,7 +9,7 @@ import { useState } from 'react';
 const Video = dynamic(() => import('@/components/common/Video'));
 
 const ProjectsCard = ({ list }: { list: itemType[] }) => {
-  const motionLib = useDynamicLib(import('framer-motion'));
+  const motionLib = useDynamicLib(import('motion/react'));
   const [video, setVideo] = useState<{ src: string; playing: boolean }>({
     src: '',
     playing: false,

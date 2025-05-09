@@ -1,5 +1,4 @@
-const endpoint = "https://api.github.com/graphql";
-const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+import { requestGraphQL } from './graphqlClient';
 
 const MAKE_LIST_PAGES_PARAM = (repo: string, path: string) => `
   query {
@@ -18,31 +17,13 @@ const MAKE_LIST_PAGES_PARAM = (repo: string, path: string) => `
   }
 `;
 
-async function listPagesFromGithub(
-  config: RequestInit,
-  REPO_NAME: string,
-  path: string
-) {
+async function listPagesFromGithub(config: RequestInit, REPO_NAME: string, path: string) {
   try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ query: MAKE_LIST_PAGES_PARAM(REPO_NAME, path) }),
-      ...config,
-    });
-
-    const data = await response.json();
-
-    if (!data || !data.data) {
-      return { error: true, data: data.errors };
-    }
+    const data = await requestGraphQL(MAKE_LIST_PAGES_PARAM(REPO_NAME, path), config);
 
     // Filtra apenas os diretórios (type === 'tree')
-    const folders = data.data.viewer.repository.folders.entries.filter(
-      (entry: any) => entry.type === "tree"
+    const folders = data.viewer.repository.folders.entries.filter(
+      (entry: any) => entry.type === 'tree'
     );
 
     return folders.map((folder: any) => folder.name);
@@ -52,13 +33,10 @@ async function listPagesFromGithub(
   }
 }
 
-export default async function listPosts(
-  REPO_NAME: string,
-  path: string
-): Promise<string[]> {
+export default async function listPosts(REPO_NAME: string, path: string): Promise<string[]> {
   return (await listPagesFromGithub(
     { next: { revalidate: 86400 } },
-    REPO_NAME || "",
-    path ?? ""
+    REPO_NAME || '',
+    path ?? ''
   )) as string[];
 }

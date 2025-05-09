@@ -1,5 +1,4 @@
-const endpoint = "https://api.github.com/graphql";
-const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+import { requestGraphQL } from './graphqlClient';
 
 const MAKE_GET_REPO_PARAM = (repo: string) => `
   query {
@@ -46,23 +45,9 @@ const MAKE_GET_REPO_PARAM = (repo: string) => `
 
 async function getReposByNameGithub(config: RequestInit, REPO_NAME: string) {
   try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ query: MAKE_GET_REPO_PARAM(REPO_NAME) }),
-      ...config,
-    });
+    const data = await requestGraphQL(MAKE_GET_REPO_PARAM(REPO_NAME), config);
 
-    const data = await response.json();
-
-    if (!data || !data.data) {
-      //throw new Error('Unexpected API response');
-      return { error: true, data: data.errors };
-    }
-    return data.data.viewer.repository;
+    return data.viewer.repository;
   } catch (error) {
     console.error(`Error fetching data: ${error}`);
     throw error;
@@ -70,5 +55,5 @@ async function getReposByNameGithub(config: RequestInit, REPO_NAME: string) {
 }
 
 export default async function getReposByName(REPO_NAME: string) {
-  return getReposByNameGithub({ next: { revalidate: 86400 } }, REPO_NAME || "");
+  return getReposByNameGithub({ next: { revalidate: 86400 } }, REPO_NAME || '');
 }
