@@ -12,12 +12,8 @@ body {
 }
 
 @layer base {
-  .bg-header {
-    background-color: #3c3c3c;
-  }
-
   body {
-    background-color: #02010c;
+    @apply bg-tertiary;
   }
 }
 
