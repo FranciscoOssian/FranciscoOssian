@@ -30,7 +30,7 @@ const Background = ({ children }: any) => (
 const Text = ({ button, title, text }: { title: string; text: string; button: LinkProps }) => (
   <Background>
     <div className="p-6 max-lg:backdrop-brightness-[0.25] max-lg:w-[100vw] relative flex flex-col justify-between gap-5 ">
-      <div className="lg:text-6xl max-lg:text-3xl">{title}</div>
+      <div className="lg:text-6xl max-lg:text-3xl text-secondary">{title}</div>
       <div>{text}</div>
       <div className="max-lg:hidden">
         <Button {...button} />

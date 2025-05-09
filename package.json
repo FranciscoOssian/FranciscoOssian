@@ -10,6 +10,7 @@
     "cbs": "rm -r .next && npm run build && npm run start"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "cssnano": "^7.0.4",
     "framer-motion": "^11.3.8",
     "highlight.js": "^11.9.0",
