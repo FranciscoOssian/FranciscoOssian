@@ -72,7 +72,7 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col">
-      <Above />
+      <Above link={settings.what_i_do.link} />
       <PageFrame className="flex justify-center items-center flex-col gap-20 my-7">
         <SectionSlide>
           <BentoPanel
@@ -88,7 +88,7 @@ export default async function Home() {
                 svgPath: '/linkedin-icon.svg',
               },
               {
-                href: 'https://api.whatsapp.com/send/?phone=5555859920485&text&type=phone_number&app_absent=0',
+                href: settings.what_i_do.link,
                 svgPath: '/wpp-icon.svg',
               },
             ]}

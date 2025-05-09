@@ -32,7 +32,7 @@ export const Nav = () => {
   );
 };
 
-const Content = () => (
+const Content = ({ link }: { link: string }) => (
   <InternalLayout className="flex flex-col justify-center h-full text-white">
     <div className="w-full max-tablet:max-w-[100%] max-w-[60%] flex flex-col gap-2">
       <h1 className="text-6xl max-sm:text-4xl leading-[60px] font-bold w] mkin-w-[700px] text-primary">
@@ -46,7 +46,7 @@ const Content = () => (
 
       <p className="font-bold">Front-End | Back-End | Mobile | Cloud | Automações</p>
 
-      <Link href="https://api.whatsapp.com/send/?phone=558592048568&text&type=phone_number&app_absent=0">
+      <Link href={link}>
         <button className="base-button font-bold px-14 py-3 mt-4">
           Entre em contato e inicie seu projeto hoje
         </button>
@@ -68,7 +68,7 @@ export const ImageBG = () => (
   />
 );
 
-const Above = () => {
+const Above = ({ link }: { link: string }) => {
   const [second, setSecond] = useState(false);
   return (
     <>
@@ -80,7 +80,7 @@ const Above = () => {
           id="above"
           className="relative overflow-hidden pt-10 rounded-b-3xl h-[60svh] max-h-[700px] min-h-[550px] max-xl:w-full w-[1280px]">
           <Nav />
-          <Content />
+          <Content link={link} />
           <ImageBG />
         </div>
       </AboveMotion>
