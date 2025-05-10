@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             { src: '/email-icon.svg', href: 'mailto:francisco.ossian.ln@gmail.com' },
             {
               src: '/wpp-icon.svg',
-              href: 'https://api.whatsapp.com/send/?phone=5555859920485&text&type=phone_number&app_absent=0',
+              href: 'https://api.whatsapp.com/send/?phone=558596190031&text&type=phone_number&app_absent=0',
             },
           ]}
         />
