@@ -24,8 +24,23 @@ export const Pictures = ({ images }: { images: { src: string; alt?: string }[] }
       {images.map((img, i) => (
         <div key={i} className="absolute">
           <motion.div
-            initial={{ rotate: transforms[i].angle, y: transforms[i].y }}
-            whileHover={{ x: 30 }}
+            initial={{
+              rotate: transforms[i].angle,
+              y: transforms[i].y,
+            }}
+            animate={{
+              x: [
+                15 + 15 * (1 - 2 * (i % 2)),
+                15 + 20 * (1 - 2 * (i % 2)),
+                15 + 15 * (1 - 2 * (i % 2)),
+              ],
+              opacity: 1,
+            }}
+            transition={{
+              duration: 2,
+              ease: 'easeInOut',
+              repeat: Infinity,
+            }}
             className="relative overflow-hidden rounded-r-3xl w-[23.3125rem] h-[17.625rem]">
             <Image src={img.src} fill alt={img.alt || ''} />
           </motion.div>

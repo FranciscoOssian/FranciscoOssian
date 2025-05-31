@@ -44,7 +44,7 @@ const Detail = ({ project }: { project: itemType }) => {
         }}
         className="w-full h-fit rounded-xl p-6 flex flex-col gap-8">
         <div className="flex flex-col gap-8 w-[65%] max-lg:w-full leading-[111%]">
-          <div className="flex justify-between max-lg:w-[70%]">
+          <div className="flex justify-between flex-wrap max-lg:w-[70%]">
             <div className="text-2xl uppercase font-bold text-[#373737]">{project.title}</div>
             <button className="font-bold base-button hover:!bg-primary w-40 max-lg:w-32 flex justify-center items-center gap-3">
               <ArrowTopRightOnSquareIcon className="size-6" />
@@ -55,9 +55,11 @@ const Detail = ({ project }: { project: itemType }) => {
         </div>
         <div className="flex max-lg:flex-wrap">
           <div className="w-96 h-48 relative overflow-hidden border rounded-3xl">
-            <Image src={project?.image ?? ''} alt={project?.title + '/media'} fill />
+            {project?.image && (
+              <Image src={project?.image ?? ''} alt={project?.title + '/media'} fill />
+            )}
           </div>
-          <div className="flex justify-center items-center w-36 max-lg:w-full max-lg:mt-9">
+          <div className="flex justify-start items-center w-40 max-lg:w-full max-lg:mt-9">
             <div className="flex flex-wrap justify-end items-center gap-3 h-fit">
               {project?.tags && project?.tags.map((tag, i) => <Tag key={i} label={tag} />)}
             </div>
@@ -67,12 +69,12 @@ const Detail = ({ project }: { project: itemType }) => {
       <div
         style={{
           background: 'rgba(0,0,0,0.2)',
-          border: '1px solid rgba(255, 255, 255, 0.26)',
+          border: '1px solid hsla(0, 0%, 100%, 0.26)',
           backgroundImage:
             'linear-gradient(45deg,rgba(151, 151, 151, 0.25) 0%, rgba(49, 49, 49, 1) 100%)',
         }}
         className="absolute size-52 max-lg:size-28 -top-8 -right-8 max-lg:-right-0  overflow-hidden rounded-xl">
-        <div className="relative w-full h-full ">
+        <div className="relative w-full h-full">
           <Image src={project?.icon ?? ''} alt={project?.title + '/media-icon'} fill />
         </div>
       </div>
