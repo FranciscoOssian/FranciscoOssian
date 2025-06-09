@@ -52,8 +52,10 @@ export default async function Home() {
             }}
           />
         </SectionSlide>
-        <SectionSlide className="flex w-full justify-center items-center flex-col gap-24">
-          <h2 id="projetos" className="font-bold text-6xl leading-10 text-secondary">
+        <SectionSlide className="flex w-full justify-center items-center flex-col gap-24 max-md:gap-7">
+          <h2
+            id="projetos"
+            className="font-bold text-6xl leading-10 text-secondary max-md:text-5xl max-md:left-9">
             PROJETOS
           </h2>
           <Projects list={DATA} />

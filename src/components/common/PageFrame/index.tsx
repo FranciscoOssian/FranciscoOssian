@@ -8,7 +8,9 @@ interface Props {
 const PageFrame: React.FC<Props> = ({ children, className }) => {
   return (
     <div className={`w-svw flex justify-center items-center ${className}`}>
-      <div className={`max-w-[61.81rem] w-svw mx-8 ${className}`}>{children}</div>
+      <div className={`max-w-[61.81rem] w-svw mx-8 max-md:max-w-[320px] ${className}`}>
+        {children}
+      </div>
     </div>
   );
 };
