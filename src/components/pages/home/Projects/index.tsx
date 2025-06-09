@@ -35,7 +35,7 @@ const Project = ({ project, selected }: { project: itemType; selected: boolean }
 
 const Detail = ({ project }: { project: itemType }) => {
   return (
-    <div className="w-[594px] max-lg:w-full max-lg:mt-10 relative">
+    <div className="max-w-[594px] max-lg:w-full max-lg:mt-10 max-md:w-[310px] relative">
       <div
         style={{
           background: '#D9D9D9',
@@ -85,8 +85,8 @@ const Detail = ({ project }: { project: itemType }) => {
 const Projects = ({ list }: { list: itemType[] }) => {
   const [selected, setSelected] = useState<itemType>(list[0]);
   return (
-    <div className="flex gap-2">
-      <ul className="w-96 flex flex-col gap-4">
+    <div className="flex gap-2 justify-center items-center">
+      <ul className="max-w-96 flex flex-col gap-4">
         {list.map((project, i) => (
           <li key={i} onClick={() => setSelected(project)}>
             <Project selected={project.title === selected?.title} project={project} />
