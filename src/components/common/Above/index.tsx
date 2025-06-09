@@ -78,7 +78,7 @@ const Above = ({ link }: { link: string }) => {
         className="w-svw flex justify-center items-center">
         <div
           id="above"
-          className="relative overflow-hidden pt-10 rounded-b-3xl h-[60svh] max-h-[700px] min-h-[550px] max-xl:w-full w-[1280px]">
+          className="relative pt-10 rounded-b-3xl h-[60svh] max-h-[700px] min-h-[550px] max-xl:w-full w-[1280px]">
           <Nav />
           <Content link={link} />
           <ImageBG />
