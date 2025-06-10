@@ -29,7 +29,7 @@ const Background = ({ children }: any) => (
 
 const Text = ({ button, title, text }: { title: string; text: string; button: LinkProps }) => (
   <Background>
-    <div className="p-6 max-lg:backdrop-brightness-[0.25] max-lg:w-[100vw] relative flex flex-col justify-between gap-5 ">
+    <div className="p-6 max-lg:backdrop-brightness-[0.25] relative flex flex-col justify-between gap-5 ">
       <div className="lg:text-6xl max-lg:text-3xl text-secondary">{title}</div>
       <div>{text}</div>
       <div className="max-lg:hidden">
@@ -41,7 +41,7 @@ const Text = ({ button, title, text }: { title: string; text: string; button: Li
 
 const Button = (props: LinkProps) => (
   <Link {...props}>
-    <div className="max-lg:w-[100vw] flex justify-center items-center base-button font-bold max-lg:px-10 w-[34.1875rem] h-[4.3125rem]">
+    <div className="max-lg:w-full flex justify-center items-center base-button font-bold max-lg:px-10 w-[34.1875rem] h-[4.3125rem]">
       Quer saber como ? Contate-me
     </div>
   </Link>
