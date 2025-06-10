@@ -33,7 +33,7 @@ export const Nav = () => {
 };
 
 const Content = ({ link }: { link: string }) => (
-  <InternalLayout className="flex flex-col justify-center h-full text-white">
+  <InternalLayout className="flex flex-col justify-center h-full text-white absolute top-4">
     <div className="w-full max-tablet:max-w-[100%] max-w-[60%] flex flex-col gap-2">
       <h1 className="text-6xl max-sm:text-4xl leading-[60px] font-bold w] mkin-w-[700px] text-primary">
         <span className="text-secondary">Eleve seu negócio a outro nível</span> com um full stack de
@@ -75,14 +75,14 @@ const Above = ({ link }: { link: string }) => {
       <AboveMotion
         onEnter={() => setSecond(false)}
         onLeave={() => setSecond(true)}
-        className="w-svw flex justify-center items-center">
+        className="w-svw relative flex justify-center items-center flex-col">
         <div
           id="above"
-          className="relative pt-10 rounded-b-3xl h-[60svh] max-h-[700px] min-h-[550px] max-xl:w-full w-[1280px]">
+          className="relative overflow-hidden rounded-b-3xl h-[60svh] max-h-[700px] min-h-[550px] max-xl:w-full w-[1280px]">
           <Nav />
-          <Content link={link} />
           <ImageBG />
         </div>
+        <Content link={link} />
       </AboveMotion>
 
       {second && (
