@@ -49,7 +49,7 @@ const Content = ({ link }: { link: string }) => (
       <p className="font-bold">Front-End | Back-End | Mobile | Cloud | Automações</p>
 
       <Link href={link}>
-        <button className="text-xs w-[392px] max-w-full border max-internal-phone:w-full h-[44px] pl-5 pr-1 flex justify-between max-internal-phone:justify-end max-internal-phone:gap-1 items-center base-button font-bold">
+        <button className="text-xs w-[392px] max-w-full max-internal-phone:w-full h-[44px] pl-5 pr-1 flex justify-between max-internal-phone:justify-end max-internal-phone:gap-1 items-center base-button font-bold">
           Fale comigo agora no WhatsApp
           <svg
             width="40"
