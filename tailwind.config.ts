@@ -10,15 +10,15 @@ const config: Config = {
   theme: {
     extend: {
       width: {
-        'internal-phone': '430px',
+        'internal-phone': '639px',
         'internal-tablet': '749px',
-        'internal-desktop': '1020px',
+        'internal-desktop': '1024px',
         'mac-air': '1280px',
       },
       screens: {
-        'internal-phone': '430px',
+        'internal-phone': '639px',
         'internal-tablet': '749px',
-        'internal-desktop': '1020px',
+        'internal-desktop': '1024px',
         'mac-air': '1280px',
       },
       colors: {
