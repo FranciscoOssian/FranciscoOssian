@@ -88,11 +88,13 @@ const Projects = ({ list }: { list: itemType[] }) => {
     <div className="flex gap-2 justify-center items-center">
       <ul className="max-w-96 flex flex-col gap-4">
         {list.map((project, i) => (
-          <li key={i} onClick={() => setSelected(project)}>
-            <Project selected={project.title === selected?.title} project={project} />
-            <div className={selected.title === project.title ? 'hidden max-lg:block' : 'hidden'}>
-              <Detail project={selected} />
-            </div>
+          <li key={i}>
+            <button className="w-full text-left" onClick={() => setSelected(project)}>
+              <Project selected={project.title === selected?.title} project={project} />
+              <div className={selected.title === project.title ? 'hidden max-lg:block' : 'hidden'}>
+                <Detail project={selected} />
+              </div>
+            </button>
           </li>
         ))}
       </ul>
