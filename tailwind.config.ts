@@ -8,12 +8,19 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    screens: {
-      phone: '430px',
-      tablet: '960px',
-      ...defaultTheme.screens,
-    },
     extend: {
+      width: {
+        'internal-phone': '430px',
+        'internal-tablet': '749px',
+        'internal-desktop': '1020px',
+        'mac-air': '1280px',
+      },
+      screens: {
+        'internal-phone': '430px',
+        'internal-tablet': '749px',
+        'internal-desktop': '1020px',
+        'mac-air': '1280px',
+      },
       colors: {
         primary: '#86E38F',
         secondary: '#CEE2FF',
