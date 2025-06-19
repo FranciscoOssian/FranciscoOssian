@@ -1,0 +1,28 @@
+.svgContainerOpacityCardEmpty {
+  display: none;
+}
+
+.svgContainerOpacityCard {
+  width: 100% !important;
+  height: 100% !important;
+  svg {
+    width: 100% !important;
+    height: 100% !important;
+    path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+
+    @for $i from 1 through 500 {
+      path:nth-of-type(#{$i}) {
+        animation: draw 1s forwards #{($i - 1) * 0.05}s;
+      }
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+}

@@ -1,66 +1,34 @@
-import Image from 'next/image';
-import Link, { LinkProps } from 'next/link';
-import { Pictures } from './Pictures';
+import { Picture } from './Picture';
 
 interface OpacityCardProps {
   title: string;
   text: string;
-  button: LinkProps;
   className?: string;
-  images: {
+  image: {
     src: string;
     alt?: string;
-  }[];
+  };
 }
 
-//max-lg:bg-[url('/bg-placeholder.jpg')] bg-cover bg-center
-const Background = ({ children }: any) => (
-  <div className="relative overflow-hidden rounded-2xl h-full">
-    <Image
-      src="/bg-placeholder.jpg"
-      fill
-      alt={''}
-      className="lg:hidden"
-      style={{ objectFit: 'cover' }}
-    />
-    {children}
+const Text = ({ title, text }: { title: string; text: string }) => (
+  <div className="max-internal-phone:bg-gradient-to-r from-tertiary via-tertiary to-primary rounded-2xl p-[1px]">
+    <div className="bg-tertiary rounded-2xl">
+      <div className="text-6xl max-internal-phone:text-2xl font-bold text-secondary">{title}</div>
+      <div>{text}</div>
+    </div>
   </div>
 );
 
-const Text = ({ button, title, text }: { title: string; text: string; button: LinkProps }) => (
-  <Background>
-    <div className="p-6 max-lg:backdrop-brightness-[0.25] relative flex flex-col justify-between gap-5 ">
-      <div className="lg:text-6xl max-lg:text-3xl text-secondary">{title}</div>
-      <div>{text}</div>
-      <div className="max-lg:hidden">
-        <Button {...button} />
-      </div>
-    </div>
-  </Background>
-);
-
-const Button = (props: LinkProps) => (
-  <Link {...props}>
-    <div className="max-lg:w-full flex justify-center items-center base-button font-bold max-lg:px-10 w-[34.1875rem] h-[4.3125rem]">
-      Quer saber como ? Contate-me
-    </div>
-  </Link>
-);
-
-const OpacityCard = ({ title, text, button, className, images }: OpacityCardProps) => {
+const OpacityCard = ({ title, text, className, image }: OpacityCardProps) => {
   return (
-    <section className={`flex flex-col ${className}`}>
-      <div className="flex justify-between w-full text-white">
+    <section className={`${className}`}>
+      <div className="w-full text-white grid grid-cols-2 max-internal-tablet:flex flex-col items-center">
         {/* Text */}
-        <Text button={button} title={title} text={text} />
+        <Text title={title} text={text} />
         {/* Image */}
-        <div className="max-lg:hidden">
-          <Pictures images={images} />
+        <div className="flex justify-end items-end">
+          <Picture image={image} />
         </div>
-      </div>
-      {/* Button */}
-      <div className="lg:hidden mt-[1.25rem]">
-        <Button {...button} />
       </div>
     </section>
   );

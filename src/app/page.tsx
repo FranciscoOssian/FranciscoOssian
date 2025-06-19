@@ -1,7 +1,7 @@
 import Above from '@/components/common/Above';
 import BentoPanel from '@/components/common/BentoPanel';
+import { InternalLayout } from '@/components/common/InternalLayout';
 import OpacityCard from '@/components/common/OpacityCard';
-import PageFrame from '@/components/common/PageFrame';
 import Projects, { itemType } from '@/components/pages/home/Projects';
 import { SectionSlide } from '@/components/pages/home/sectionSlide';
 
@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <main className="flex flex-col">
       <Above link={settings.what_i_do.link} />
-      <PageFrame className="flex justify-center items-center flex-col gap-20 my-7">
+      <InternalLayout className="flex justify-center items-center flex-col gap-20 my-7">
         <SectionSlide>
           <BentoPanel
             title={settings.about.title}
@@ -41,14 +41,8 @@ export default async function Home() {
           <OpacityCard
             title={settings.what_i_do.title}
             text={settings.what_i_do.text}
-            images={[
-              { src: '/bg-placeholder.jpg' },
-              {
-                src: 'https://firebasestorage.googleapis.com/v0/b/foln-dev.appspot.com/o/bgjpg-874pe8uqj4.jpg?alt=media&token=b2f951a2-32f1-44d0-b369-42c0415a2e7d',
-              },
-            ]}
-            button={{
-              href: settings.what_i_do.link,
+            image={{
+              src: 'https://firebasestorage.googleapis.com/v0/b/foln-dev.appspot.com/o/Group%201.svg?alt=media&token=d3a552ed-a4d9-4b2f-98e3-7d3c7124e13f',
             }}
           />
         </SectionSlide>
@@ -60,7 +54,7 @@ export default async function Home() {
           </h2>
           <Projects list={DATA} />
         </SectionSlide>
-      </PageFrame>
+      </InternalLayout>
     </main>
   );
 }
