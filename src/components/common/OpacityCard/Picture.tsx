@@ -21,7 +21,9 @@ export const Picture = ({ image }: { image: { src: string } }) => {
 
   return (
     <motion.div>
-      <div ref={father} className="w-96 h-36 max-internal-phone:w-80 text-secondary">
+      <div
+        ref={father}
+        className="w-96 max-[377px]:w-full h-36 max-internal-phone:w-80 text-secondary">
         <div
           className={inView ? styles.svgContainerOpacityCard : styles.svgContainerOpacityCardEmpty}
           ref={containerRef}

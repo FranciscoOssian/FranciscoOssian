@@ -3,7 +3,6 @@ import { Picture } from './Picture';
 interface OpacityCardProps {
   title: string;
   text: string;
-  className?: string;
   image: {
     src: string;
     alt?: string;
@@ -11,7 +10,7 @@ interface OpacityCardProps {
 }
 
 const Text = ({ title, text }: { title: string; text: string }) => (
-  <div className="max-internal-phone:bg-gradient-to-r from-tertiary via-tertiary to-primary rounded-2xl p-[1px]">
+  <div className="w-full max-internal-phone:bg-gradient-to-r from-tertiary via-tertiary to-primary rounded-2xl p-[1px]">
     <div className="bg-tertiary rounded-2xl">
       <div className="text-6xl max-internal-phone:text-2xl font-bold text-secondary">{title}</div>
       <div>{text}</div>
@@ -19,9 +18,9 @@ const Text = ({ title, text }: { title: string; text: string }) => (
   </div>
 );
 
-const OpacityCard = ({ title, text, className, image }: OpacityCardProps) => {
+const OpacityCard = ({ title, text, image }: OpacityCardProps) => {
   return (
-    <section className={`${className}`}>
+    <section className="w-full">
       <div className="w-full text-white grid grid-cols-2 max-internal-tablet:flex flex-col items-center">
         {/* Text */}
         <Text title={title} text={text} />
