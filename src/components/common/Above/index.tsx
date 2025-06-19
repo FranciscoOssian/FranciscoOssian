@@ -49,7 +49,7 @@ const Content = ({ link }: { link: string }) => (
       <p className="font-bold">Front-End | Back-End | Mobile | Cloud | Automações</p>
 
       <Link href={link}>
-        <button className="text-xs w-[392px] max-internal-phone:w-full h-[44px] pl-5 pr-1 flex justify-between items-center base-button font-bold">
+        <button className="text-xs w-[392px] max-w-full border max-internal-phone:w-full h-[44px] pl-5 pr-1 flex justify-between max-internal-phone:justify-end max-internal-phone:gap-1 items-center base-button font-bold">
           Fale comigo agora no WhatsApp
           <svg
             width="40"
@@ -92,7 +92,7 @@ const Above = ({ link }: { link: string }) => {
           <InternalLayout className="flex items-center flex-col h-full">
             <Nav />
             <div className="mt-11 max-internal-tablet:mt-3 max-internal-phone:mt-1 w-full flex justify-start">
-              <div className="w-[583px] min-w-[261px]">
+              <div className="max-w-[583px] min-w-[261px] w-full">
                 <Content link={link} />
               </div>
             </div>
