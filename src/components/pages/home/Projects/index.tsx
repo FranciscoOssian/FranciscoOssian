@@ -36,7 +36,7 @@ const Project = ({ project, selected }: { project: itemType; selected: boolean }
 
 const Detail = ({ project }: { project: itemType }) => {
   return (
-    <div className="max-internal-desktop:max-w-[594px] w-full max-lg:mt-10 relative">
+    <div className="max-w-[594px] w-full max-lg:mt-10 relative">
       <div
         style={{
           background: '#D9D9D9',
