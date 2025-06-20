@@ -27,7 +27,7 @@ const UlComponent: React.FC<UlComponentProps> = ({ items, className }) => (
           item
         ) : item.href ? (
           <Link href={item.href}>
-            <div className="relative size-8">
+            <div className="relative size-8 text-black">
               <Image
                 src={item.src ?? ''}
                 alt={item.src ?? 'social media icon'}

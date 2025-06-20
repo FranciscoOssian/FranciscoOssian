@@ -15,11 +15,11 @@ interface BentoPanelProps {
 
 const Links = ({ links }: BentoPanelProps) =>
   links && (
-    <ul className="border border-primary bg-tertiary rounded-full flex justify-evenly items-center w-80 max-internal-phone:w-full max-internal-phone:mt-2 h-16">
+    <ul className="text-white border border-primary bg-tertiary rounded-full flex justify-evenly items-center w-80 max-internal-phone:w-full max-internal-phone:mt-2 h-16">
       {links.map(({ svgPath, ...rest }, index) => (
         <li key={index} className="relative w-10 h-10">
           <Link {...rest}>
-            <Image fill src={svgPath} alt={`icon for ${rest.href}`} />
+            <Image className="invert" fill src={svgPath} alt={`icon for ${rest.href}`} />
           </Link>
         </li>
       ))}
