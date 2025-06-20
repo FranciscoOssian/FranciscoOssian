@@ -89,12 +89,12 @@ const Projects = ({ list }: { list: itemType[] }) => {
       <ul className="max-w-96 flex flex-col gap-4">
         {list.map((project, i) => (
           <li key={i}>
-            <button className="w-full text-left" onClick={() => setSelected(project)}>
+            <div className="w-full text-left" onClick={() => setSelected(project)}>
               <Project selected={project.title === selected?.title} project={project} />
               <div className={selected.title === project.title ? 'hidden max-lg:block' : 'hidden'}>
                 <Detail project={selected} />
               </div>
-            </button>
+            </div>
           </li>
         ))}
       </ul>
