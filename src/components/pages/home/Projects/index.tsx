@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
+import { AnimatePresence, motion } from 'motion/react';
 
 const Tag = ({ label }: { label: string }) => {
   return (
@@ -35,7 +36,7 @@ const Project = ({ project, selected }: { project: itemType; selected: boolean }
 
 const Detail = ({ project }: { project: itemType }) => {
   return (
-    <div className="max-w-[594px] max-lg:w-full max-lg:mt-10 max-md:w-[310px] relative">
+    <div className="max-internal-desktop:max-w-[594px] w-full max-lg:mt-10 relative">
       <div
         style={{
           background: '#D9D9D9',
@@ -54,7 +55,7 @@ const Detail = ({ project }: { project: itemType }) => {
           <div>{project.subtitle}</div>
         </div>
         <div className="flex max-lg:flex-wrap">
-          <div className="w-96 h-48 relative overflow-hidden border rounded-3xl">
+          <div className="w-96 h-48 relative overflow-hidden border rounded-3xl max-internal-tablet:hidden">
             {project?.image && (
               <Image src={project?.image ?? ''} alt={project?.title + '/media'} fill />
             )}
@@ -85,23 +86,45 @@ const Detail = ({ project }: { project: itemType }) => {
 const Projects = ({ list }: { list: itemType[] }) => {
   const [selected, setSelected] = useState<itemType>(list[0]);
   return (
-    <div className="flex gap-2 justify-center items-center">
-      <ul className="max-w-96 flex flex-col gap-4">
-        {list.map((project, i) => (
-          <li key={i}>
-            <button className="w-full text-left" onClick={() => setSelected(project)}>
-              <Project selected={project.title === selected?.title} project={project} />
-              <div className={selected.title === project.title ? 'hidden max-lg:block' : 'hidden'}>
-                <Detail project={selected} />
+    <AnimatePresence mode="wait">
+      <motion.div className="w-full flex gap-2 justify-start items-start">
+        <ul className="w-full flex flex-col gap-4">
+          {list.map((project) => (
+            <li key={project.title}>
+              <div
+                className="w-full text-left"
+                onKeyDown={() => setSelected(project)}
+                onClick={() => setSelected(project)}>
+                <Project selected={project.title === selected?.title} project={project} />
+                <AnimatePresence>
+                  {project.title === selected.title && (
+                    <motion.div
+                      className="hidden max-internal-phone:block overflow-hidden"
+                      key={selected.title}
+                      initial={{ opacity: 0, y: 50, height: '1px' }}
+                      animate={{ opacity: 1, y: 0, height: 'auto' }}
+                      exit={{ opacity: 0, y: 50, height: '1px' }}
+                      transition={{ duration: 0.3 }}>
+                      <Detail project={selected} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            </button>
-          </li>
-        ))}
-      </ul>
-      <div className="max-lg:hidden">
-        <Detail project={selected} />
-      </div>
-    </div>
+            </li>
+          ))}
+        </ul>
+        <div className="max-internal-phone:hidden">
+          <motion.div
+            key={selected.title}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.3 }}>
+            <Detail project={selected} />
+          </motion.div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

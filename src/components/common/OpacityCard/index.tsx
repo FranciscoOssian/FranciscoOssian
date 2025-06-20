@@ -11,7 +11,7 @@ interface OpacityCardProps {
 
 const Text = ({ title, text }: { title: string; text: string }) => (
   <div className="w-full max-internal-phone:bg-gradient-to-r from-tertiary via-tertiary to-primary rounded-2xl p-[1px]">
-    <div className="bg-tertiary rounded-2xl">
+    <div className="bg-tertiary rounded-2xl py-2">
       <div className="text-6xl max-internal-phone:text-2xl font-bold text-secondary">{title}</div>
       <div>{text}</div>
     </div>

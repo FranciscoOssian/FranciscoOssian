@@ -46,10 +46,10 @@ export default async function Home() {
             }}
           />
         </SectionSlide>
-        <SectionSlide className="flex w-full justify-center items-center flex-col gap-24 max-md:gap-7">
+        <SectionSlide className="w-full flex justify-center items-center flex-col gap-24 max-internal-desktop:gap-7">
           <h2
             id="projetos"
-            className="font-bold text-6xl leading-10 text-secondary max-md:text-5xl max-md:left-9">
+            className="text-6xl max-internal-phone:text-2xl font-bold text-secondary">
             PROJETOS
           </h2>
           <Projects list={DATA} />
