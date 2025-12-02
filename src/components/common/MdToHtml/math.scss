@@ -1,0 +1,10 @@
+.katex {
+  font-size: 1.35em;
+  transition: 0.5s;
+}
+
+.katex:hover {
+  font-size: 30px;
+  transition: 0.5s;
+  cursor: zoom-in;
+}
