@@ -7,7 +7,7 @@ body {
   overflow-x: hidden;
 }
 
-* {
+*:not(math):not(math *):not(.katex):not(.katex *) {
   @apply font-space-grotesk;
 }
 

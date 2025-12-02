@@ -1,77 +1,106 @@
-import React from 'react';
-import { marked } from 'marked';
-import hljs from 'highlight.js';
-import 'highlight.js/styles/default.css';
+import rehypeKatex from 'rehype-katex';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
+import remarkMath from 'remark-math';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import { visit } from 'unist-util-visit';
+import { unified } from 'unified';
+
+import 'highlight.js/styles/dark.css';
+
+import 'katex/dist/katex.min.css';
+
 import './styles.scss';
+import './math.scss';
 
-const highlightCode = (code: string, language: string) => {
-  if (language && hljs.getLanguage(language)) {
-    try {
-      return hljs.highlight(language, code).value;
-    } catch (err) {}
-  }
-  return hljs.highlightAuto(code).value;
-};
+function rehypeTerminalWrapper() {
+  return (tree: any) => {
+    visit(tree, 'element', (node: any, index: number | undefined, parent: any) => {
+      if (!parent || index === undefined) return;
+      if (node.tagName !== 'pre') return;
 
-function slug(text: string) {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/--+/g, '-')
-    .trim();
+      const codeNode = node.children?.find((child: any) => child.tagName === 'code');
+      if (!codeNode) return;
+
+      const classes = codeNode.properties?.className || [];
+
+      // 1. Ignorar se for explicitamente marcado como linguagem matemática/latex
+      if (classes.includes('language-math') || classes.includes('language-latex')) {
+        return;
+      }
+
+      const terminal = {
+        type: 'element',
+        tagName: 'div',
+        properties: { className: ['terminal-frame'] },
+        children: [
+          {
+            type: 'element',
+            tagName: 'div',
+            properties: { className: ['mac-window-controls'] },
+            children: [
+              {
+                type: 'element',
+                tagName: 'input',
+                properties: {
+                  type: 'radio',
+                  name: 'window-control',
+                  className: ['mac-window-button', 'close'],
+                },
+              },
+              {
+                type: 'element',
+                tagName: 'input',
+                properties: {
+                  type: 'radio',
+                  name: 'window-control',
+                  className: ['mac-window-button', 'minimize'],
+                },
+              },
+              {
+                type: 'element',
+                tagName: 'input',
+                properties: {
+                  type: 'radio',
+                  name: 'window-control',
+                  className: ['mac-window-button', 'maximize'],
+                },
+              },
+            ],
+          },
+          {
+            type: 'element',
+            tagName: 'pre',
+            properties: { className: ['terminal-frame-text'] },
+            children: [codeNode], // 👈 AQUI é onde o highlight já injetou spans
+          },
+        ],
+      };
+
+      parent.children[index] = terminal;
+    });
+  };
 }
 
-const used = false;
-
-// Override function
-const renderer = {
-  code(text: string, lang: string | undefined) {
-    const html = `
-      <div class="terminal-frame">
-        <div class="mac-window-controls">
-          <input type="radio" name="window-control" class="mac-window-button close">
-          <input type="radio" name="window-control" class="mac-window-button minimize">
-          <input type="radio" name="window-control" class="mac-window-button maximize">
-        </div>
-        <pre class="terminal-frame-text"><code lang="${lang ?? 'js'}">${highlightCode(
-      text,
-      lang ?? 'js'
-    )}</code></pre>
-      </div>
-    `;
-
-    return html.trim();
-  },
-
-  heading(text: string, level: number) {
-    const blockLevel = (style: string) =>
-      `<h${level} class="${style}" id=${slug(text)}>${text}</h${level}>`;
-    if (level > 2 || level === 1) return blockLevel('');
-    else
-      return `
-      ${used ? '' : '</details>'}
-      <details class="mb-2 pl-[20px]">
-        <summary class="ml-[-20px] marker:color-primary relative mt-[24px] mb-[34px] cursor-pointer select-none">${blockLevel(
-          'absolute -top-[30px] left-[20px]'
-        )}</summary>
-    `;
-  },
-};
-
-marked.use({ renderer });
+const processor = unified()
+  .use(remarkParse)
+  .use(remarkMath)
+  .use(remarkGfm)
+  .use(remarkRehype)
+  .use(rehypeHighlight) // 🔥 Agora ele cuida das cores
+  .use(rehypeTerminalWrapper)
+  .use(rehypeKatex, { output: 'htmlAndMathml' })
+  .use(rehypeStringify);
 
 async function MdToHTML({ text }: { text: string }) {
   let htmlText = '';
+
   try {
-    htmlText = await marked.parse(text);
+    htmlText = String(await processor.process(text));
   } catch (e) {
-    htmlText = await marked.parse(text);
-    /* For some reason unknown until now the first attempt gave a regex error,
-    I made a second attempt at a temporary solution as no problem found
-    in the second attempt works. */
+    htmlText = String(await processor.process(text));
   }
 
   return (
