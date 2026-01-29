@@ -23,7 +23,7 @@
   <img src="https://img.shields.io/badge/CI/CD-0D1117?style=for-the-badge&logo=githubactions&logoColor=white"></img>
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></img>
   <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=sql&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white"></img>
+  <img src="https://img.shields.io/badge/Cloud/GCP/AWS-232F3E?style=for-the-badge&logo=cloud&logoColor=white"></img>
   <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"></img>
   <img src="https://img.shields.io/badge/Code_Review-1F1F1F?style=for-the-badge&logo=gitkraken&logoColor=white"></img>
 </p>
