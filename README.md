@@ -49,6 +49,6 @@ Currently, I work as a front-end web developer, with experience in React.js and 
     </a>
     <!-- Website / Portfólio -->
     <a href="https://www.foln.dev" target="_blank">
-      <img src="https://img.shields.io/badge/Website-121011?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website">
+      <img src="https://img.shields.io/badge/Website-121011?style=for-the-badge&logo=htmx&logoColor=white" alt="Website">
     </a>
 </p>
