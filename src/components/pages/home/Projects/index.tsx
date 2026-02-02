@@ -59,11 +59,11 @@ const Detail = ({ project }: { project: itemType }) => {
           <div>{project.subtitle}</div>
         </div>
         <div className="flex max-lg:flex-wrap">
-          <div className="w-96 h-48 relative overflow-hidden rounded-3xl max-internal-tablet:hidden">
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }} className="w-96 h-48 relative overflow-hidden rounded-3xl max-internal-tablet:hidden">
             {project?.image && (
               <Image src={project?.image ?? ''} alt={project?.title + '/media'} fill />
             )}
-          </div>
+          </motion.div>
           <div className="flex justify-start items-center w-40 max-lg:w-full max-lg:mt-9 max-internal-tablet:m-0">
             <div className="flex flex-wrap justify-end items-center gap-3 h-fit">
               {project?.tags &&
