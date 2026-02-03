@@ -104,6 +104,13 @@ const Projects = ({ list }: { list: itemType[] }) => {
               <div
                 className="w-full text-left"
                 onKeyDown={() => setSelected(project)}
+                onMouseEnter={() => {
+                  // preloading image
+                  if (project.image) {
+                    const img = new window.Image();
+                    img.src = project.image;
+                  }
+                }}
                 onClick={() => setSelected(project)}>
                 <Project selected={project.title === selected?.title} project={project} />
                 <AnimatePresence>
