@@ -1,54 +1,53 @@
-# Hi there 👋💻 <img width="5px" height="25px" src="https://imgur.com/wuDhMTc.gif"></img>
+# Hi there 👋💻
 
-<p align="right">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"></img>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"></img>
-  <img src="https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black"></img>
-  <img src="https://img.shields.io/badge/REST-FF6C37?style=for-the-badge&logo=rest&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Agile-F04E23?style=for-the-badge&logo=agile&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Automation-4CAF50?style=for-the-badge&logo=githubactions&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Accessibility-a11y-DF1B1B?style=for-the-badge&logo=accessibility&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/QA-00ADEF?style=for-the-badge&logo=qualityassurance&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/System_Architecture-FF6F00?style=for-the-badge&logo=architecture&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/CI/CD-0D1117?style=for-the-badge&logo=githubactions&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=sql&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Cloud/GCP/AWS-232F3E?style=for-the-badge&logo=cloud&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/Code_Review-1F1F1F?style=for-the-badge&logo=gitkraken&logoColor=white"></img>
+<p align="center">
+  <a href="https://www.linkedin.com/in/francisco-ossian/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+  <a href="mailto:francisco.ossian.ln@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
+  </a>
+  <a href="https://www.foln.dev" target="_blank">
+    <img src="https://img.shields.io/badge/Website-121011?style=for-the-badge&logo=htmx&logoColor=white" alt="Website">
+  </a>
 </p>
 
-<img width="100px" src="https://media1.tenor.com/images/58725865c95fe20cfc595725fca0d6a3/tenor.gif"></img>
+<p align="center">
+  <img width="110" src="https://media1.tenor.com/images/58725865c95fe20cfc595725fca0d6a3/tenor.gif" alt="Waving">
+</p>
 
-## About me
+## About Me
 
-I have always been passionate about technology, and now I work with it. I first started learning C language through YouTube during high school, and now I am a university student and developer. I enjoy everything that involves technology, from the depths of problem-solving to the visual aspects.
+I am a Full-stack Software Engineer with a B.Sc. in Computer Science, passionate about technology, programming, and computer science. I enjoy understanding how systems work internally and transforming complex problems into simple, scalable, and high-performance software.
 
-I have been working with React and React Native since 2019, developing both personal and market-driven projects. I also have knowledge of back-end programming and am comfortable working as a full-stack developer.
+My journey in programming started when I learned C in 2014. Since then, curiosity has driven me to explore different areas of computing, including web development, software architecture, Linux, Machine Learning, and Artificial Intelligence.
 
-Currently, I work as a front-end web developer, with experience in React.js and Next.js. I also have personal experience as a full-stack developer, creating my own projects.
+Today, I work across different layers of software development, from web applications and APIs to automation, infrastructure, Machine Learning, and Data Science. This diversity allows me to have a broader perspective on systems and make decisions considering the entire software lifecycle, from solution design to continuous evolution.
 
-<p align="right">
-    <!-- Linkedin -->
-    <a href="https://www.linkedin.com/in/francisco-ossian/" target="_blank">
-      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin">
-    </a>
-    <!-- Email -->
-    <a href="mailto:francisco.ossian.ln@gmail.com">
-      <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
-    </a>
-    <!-- Website / Portfólio -->
-    <a href="https://www.foln.dev" target="_blank">
-      <img src="https://img.shields.io/badge/Website-121011?style=for-the-badge&logo=htmx&logoColor=white" alt="Website">
-    </a>
+In recent years, I have been working with AI-assisted development workflows, designing specifications, guardrails, and tools, as well as reviewing code generated by LLMs. For this, I apply software engineering practices focused on specification, validation, and software quality, aiming to reduce technical debt even in AI-assisted development workflows.
+
+My interest in building software products integrated with LLMs has also led me to develop the infrastructure responsible for orchestrating language models, tools, and context (commonly referred to as a harness), enabling the creation of more reliable and predictable agents.
+
+I enjoy writing maintainable software, designing systems that can evolve over time, and continuously exploring new ideas and technologies.
+
+---
+
+## Tech Stack
+
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white">
+  <img src="https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white">
+  <img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white">
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white">
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white">
 </p>
