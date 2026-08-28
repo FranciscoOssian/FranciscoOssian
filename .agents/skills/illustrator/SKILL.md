@@ -1,13 +1,14 @@
 ---
 name: illustrator
-description: A context-aware brand illustration system using Google Imagen 4.0. It discovers branding from the current project to generate visual assets. Supports specific aspect ratios: 1:1, 9:16, 16:9, 4:3, 3:4. Focuses exclusively on image creation.
-license: MIT
-metadata:
-  author: Francisco Ossian
-  version: "2.1"
+description: >-
+  A context-aware brand illustration system using Google Imagen 4.0. It discovers
+  branding from the current project to generate visual assets. Supports specific
+  aspect ratios: 1:1, 9:16, 16:9, 4:3, 3:4. Focuses exclusively on image creation.
 ---
 
 # Illustrator
+
+**Author:** Francisco Ossian | **Version:** 2.1 | **License:** MIT
 
 Brand-consistent image generation via Google Imagen 4.0. It discovers project mood (CSS, configs) to ensure visual harmony.
 
@@ -20,7 +21,7 @@ Brand-consistent image generation via Google Imagen 4.0. It discovers project mo
 2. **Alignment**: Clarify Theme (e.g., "Cyberpunk"), Context (Hero, Icon), and Metaphor.
 3. **Execution**: Run generation script.
    ```bash
-   python .ai/skills/illustrator/scripts/generate.py --prompt "[PROMPT]" --aspect_ratio "[1:1|9:16|16:9|4:3|3:4]" --output "assets/[NAME].jpg"
+   python .agents/skills/illustrator/scripts/generate.py --prompt "[PROMPT]" --aspect_ratio "[1:1|9:16|16:9|4:3|3:4]" --output "assets/[NAME].jpg"
    ```
 4. **Handover**: Use `uploader` to move assets if needed.
 
