@@ -11,12 +11,10 @@ const Content = ({ title }: { title: string }) => (
     id="content"
     className="text-white w-full pb-6 pt-2 internal-tablet:pb-8 internal-tablet:pt-4">
     <div className="w-[90%] max-w-[1024px] mx-auto flex flex-row justify-between items-center gap-3">
-      {/* Título: Sempre à esquerda, responsivo */}
       <h1 className="text-2xl max-[320px]:text-xl internal-tablet:text-5xl font-bold font-space-grotesk text-left break-words flex-1 min-w-0 pr-2">
         {title}
       </h1>
 
-      {/* Avatar: Presente em todos os tamanhos, escalando no mobile */}
       <div id="img-me" className="flex justify-end items-center flex-shrink-0">
         <div className="w-16 h-16 max-[320px]:w-14 max-[320px]:h-14 internal-tablet:w-28 internal-tablet:h-28 relative">
           <Image

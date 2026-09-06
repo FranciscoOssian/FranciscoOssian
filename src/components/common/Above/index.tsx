@@ -21,7 +21,6 @@ const Logo = () => (
 export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Trava o scroll da página quando o menu mobile estiver aberto
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -39,7 +38,6 @@ export const Nav = () => {
     <nav id="top" className="top-0 flex items-center justify-between w-full my-4 z-40 relative">
       <Logo />
 
-      {/* Links visíveis apenas em Desktop / Tablet */}
       <div className="hidden internal-tablet:flex text-secondary text-xl font-bold gap-6 font-space-grotesk">
         <Link href="/blog" className="hover:text-primary transition-colors">
           Blog
@@ -52,7 +50,6 @@ export const Nav = () => {
         </Link>
       </div>
 
-      {/* Botão Pill Menu visível apenas no Mobile */}
       <button
         type="button"
         onClick={() => setIsOpen(true)}
@@ -61,12 +58,10 @@ export const Nav = () => {
         Menu
       </button>
 
-      {/* Drawer tela cheia: desliza da direita para a esquerda */}
       <div
         className={`fixed inset-0 bg-tertiary z-50 flex flex-col justify-between p-6 transition-transform duration-300 ease-in-out internal-tablet:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
-        {/* Topo do Drawer com Logo e o botão de fechar "X" exatamente na mesma altura */}
         <div className="flex items-center justify-between w-full">
           <Logo />
           <button
@@ -85,7 +80,6 @@ export const Nav = () => {
           </button>
         </div>
 
-        {/* Links centrais em tamanho grande */}
         <div className="flex flex-col items-center justify-center gap-8 text-2xl font-bold text-secondary font-space-grotesk">
           <Link
             href="/blog"
@@ -107,7 +101,6 @@ export const Nav = () => {
           </Link>
         </div>
 
-        {/* Espaçador inferior para manter o alinhamento visual */}
         <div className="h-10" />
       </div>
     </nav>
