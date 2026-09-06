@@ -42,7 +42,7 @@ export const Nav = () => {
         <Link href="/blog" className="hover:text-primary transition-colors">
           Blog
         </Link>
-        <Link href="#projetos" className="hover:text-primary transition-colors">
+        <Link href="/#projetos" className="hover:text-primary transition-colors">
           Work
         </Link>
         <Link href="/" className="hover:text-primary transition-colors">
@@ -88,7 +88,7 @@ export const Nav = () => {
             Blog
           </Link>
           <Link
-            href="#projetos"
+            href="/#projetos"
             onClick={closeMenu}
             className="hover:text-primary transition-colors text-center w-full py-2">
             Work
