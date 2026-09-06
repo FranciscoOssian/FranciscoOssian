@@ -1,36 +1,116 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { InternalLayout } from '../InternalLayout';
 
 const Logo = () => (
-  <div className="relative w-[256px] h-[26px]">
+  <div className="relative w-[220px] max-internal-phone:w-[180px] h-[26px]">
     <Link href="/">
-      <Image src="/Franciscossian.svg" fill alt="francisco ossian" />
+      <Image
+        src="/Franciscossian.svg"
+        fill
+        alt="francisco ossian"
+        className="object-contain object-left"
+      />
     </Link>
   </div>
 );
 
 export const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Trava o scroll da página quando o menu mobile estiver aberto
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <div id="top" className="top-0 flex items-center justify-center w-full m-5">
-      <div className="flex justify-between items-center gap-4 w-full">
-        <Logo />
-        <div className="flex text-secondary text-xl font-bold gap-4 font-space-grotesk">
-          <div>
-            <Link href="/blog">Blog</Link>
-          </div>
-          <div>
-            <Link href="#projetos">Work</Link>
-          </div>
-          <div>
-            <Link href="/">Home</Link>
-          </div>
-        </div>
+    <nav id="top" className="top-0 flex items-center justify-between w-full my-4 z-40 relative">
+      <Logo />
+
+      {/* Links visíveis apenas em Desktop / Tablet */}
+      <div className="hidden internal-tablet:flex text-secondary text-xl font-bold gap-6 font-space-grotesk">
+        <Link href="/blog" className="hover:text-primary transition-colors">
+          Blog
+        </Link>
+        <Link href="#projetos" className="hover:text-primary transition-colors">
+          Work
+        </Link>
+        <Link href="/" className="hover:text-primary transition-colors">
+          Home
+        </Link>
       </div>
-    </div>
+
+      {/* Botão Pill Menu visível apenas no Mobile */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(true)}
+        className="internal-tablet:hidden bg-primary text-tertiary font-bold text-sm px-5 py-1.5 rounded-full hover:bg-secondary transition-colors"
+        aria-label="Abrir menu">
+        Menu
+      </button>
+
+      {/* Drawer tela cheia: desliza da direita para a esquerda */}
+      <div
+        className={`fixed inset-0 bg-tertiary z-50 flex flex-col justify-between p-6 transition-transform duration-300 ease-in-out internal-tablet:hidden ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}>
+        {/* Topo do Drawer com Logo e o botão de fechar "X" exatamente na mesma altura */}
+        <div className="flex items-center justify-between w-full">
+          <Logo />
+          <button
+            type="button"
+            onClick={closeMenu}
+            className="text-white p-2 rounded-full hover:bg-white/10 transition-colors focus:outline-none"
+            aria-label="Fechar menu">
+            <svg
+              className="w-7 h-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Links centrais em tamanho grande */}
+        <div className="flex flex-col items-center justify-center gap-8 text-2xl font-bold text-secondary font-space-grotesk">
+          <Link
+            href="/blog"
+            onClick={closeMenu}
+            className="hover:text-primary transition-colors text-center w-full py-2">
+            Blog
+          </Link>
+          <Link
+            href="#projetos"
+            onClick={closeMenu}
+            className="hover:text-primary transition-colors text-center w-full py-2">
+            Work
+          </Link>
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="hover:text-primary transition-colors text-center w-full py-2">
+            Home
+          </Link>
+        </div>
+
+        {/* Espaçador inferior para manter o alinhamento visual */}
+        <div className="h-10" />
+      </div>
+    </nav>
   );
 };
 
