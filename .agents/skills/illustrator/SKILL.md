@@ -1,7 +1,7 @@
 ---
 name: illustrator
 description: >-
-  A context-aware brand illustration system using Google Imagen 4.0. It discovers
+  A context-aware brand illustration system using Google Gemini image generation. It discovers
   branding from the current project to generate visual assets. Supports specific
   aspect ratios: 1:1, 9:16, 16:9, 4:3, 3:4. Focuses exclusively on image creation.
 ---
@@ -10,25 +10,47 @@ description: >-
 
 **Author:** Francisco Ossian | **Version:** 2.1 | **License:** MIT
 
-Brand-consistent image generation via Google Imagen 4.0. It discovers project mood (CSS, configs) to ensure visual harmony.
+Brand-consistent image generation via Google Gemini image generation. It discovers project mood (CSS, configs) to ensure visual harmony.
 
 ## Usage Triggers
+
 - Generating images matching project UI/UX.
 - Creating assets for landing pages, blogs, or components.
 
 ## Workflow
+
 1. **Discovery**: Inspect `tailwind.config`, CSS variables (`--primary`), and existing assets for "vibe" (glassmorphism, vintage, flat).
 2. **Alignment**: Clarify Theme (e.g., "Cyberpunk"), Context (Hero, Icon), and Metaphor.
 3. **Execution**: Run generation script.
    ```bash
-   python .agents/skills/illustrator/scripts/generate.py --prompt "[PROMPT]" --aspect_ratio "[1:1|9:16|16:9|4:3|3:4]" --output "assets/[NAME].jpg"
+   .agents/skills/illustrator/.venv/bin/python .agents/skills/illustrator/scripts/generate.py --prompt "[PROMPT]" --aspect_ratio "[1:1|9:16|16:9|4:3|3:4]" --output "assets/[NAME].jpg"
    ```
+
+````
+
 4. **Handover**: Use `uploader` to move assets if needed.
 
+## Environment
+
+The Illustrator skill requires its own Python virtual environment:
+
+* `.agents/skills/illustrator/.venv/`
+
+The Google Gemini API key must be available in the project's root `.env` file as `GEMINI_API_KEY`.
+
+Dependencies:
+```bash
+.agents/skills/illustrator/.venv/bin/pip install python-dotenv google-genai
+````
+
 ## Directory Structure
+
 - See [Implementation logic for image generation](scripts/generate.py)
 - See [General design principles](references/GENERAL_PRINCIPLES.md)
 - See [Temporary local cache for generated images](assets/)
+- `.venv/`: Dedicated Python virtual environment.
 
 ## Constraints
+
 - **Discovery First**: Never assume a color palette; always try to discover it.
+- **Environment**: Always use the skill's dedicated `.venv` when executing the generation script.

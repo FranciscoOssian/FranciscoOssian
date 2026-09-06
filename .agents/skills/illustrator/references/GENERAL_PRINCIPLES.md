@@ -3,22 +3,26 @@
 These are flexible principles to guide the Illustrator agent.
 
 ## 1. Contextual Harmony
-- The illustration MUST be an extension of the UI. 
+
+- The illustration MUST be an extension of the UI.
 - The illustration should follow the Visual Identity, Mood, Theme, Colors, Typography of the project.
 
 ## 2. Visual Anchoring
+
 - **Lighting Sychronization**: If the UI uses shadows (detected in CSS), the illustration should have matching light sources and consistent shadow softness.
 - **Compositional Awareness**: If text is overlaid (e.g., "title on the left"), the illustration MUST be weighted to the opposite side to maintain contrast and legibility.
 - **Color Anchoring**: Use the exact HEX codes discovered in the project's brand for key accents to "lock" the image to the site.
 
 ## 3. Metaphorical Clarity
-- Avoid generic imagery. 
+
+- Avoid generic imagery.
 - Use the **Object + Action** formula:
   - Subject: An element from the Project's theme (e.g., A painter's brush for an Art Gallery, a glowing chip for Tech).
   - Action: The concept being illustrated (e.g., "Analyzing", "Creating", "Securing").
 
 ## 3. Physical & Digital Dimensions
-- **Aspect Ratio (Imagen 4.0 Restricted)**: You MUST choose from these specific ratios:
+
+- **Aspect Ratio**: You MUST choose from these specific ratios:
   - **1:1**: Square (Ideal for feature cards or profile icons).
   - **16:9**: Wide (Best for Heros and Headers).
   - **4:3**: Standard landscape.
