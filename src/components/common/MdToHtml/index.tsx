@@ -1,5 +1,6 @@
 import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
 import remarkMath from 'remark-math';
 import remarkParse from 'remark-parse';
@@ -74,7 +75,7 @@ function rehypeTerminalWrapper() {
             type: 'element',
             tagName: 'pre',
             properties: { className: ['terminal-frame-text'] },
-            children: [codeNode], // 👈 AQUI é onde o highlight já injetou spans
+            children: [codeNode],
           },
         ],
       };
@@ -89,7 +90,8 @@ const processor = unified()
   .use(remarkMath)
   .use(remarkGfm)
   .use(remarkRehype)
-  .use(rehypeHighlight) // 🔥 Agora ele cuida das cores
+  .use(rehypeRaw)
+  .use(rehypeHighlight)
   .use(rehypeTerminalWrapper)
   .use(rehypeKatex, { output: 'htmlAndMathml' })
   .use(rehypeStringify);
