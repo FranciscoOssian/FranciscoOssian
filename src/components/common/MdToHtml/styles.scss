@@ -73,8 +73,8 @@
 .markdown-body {
   line-height: 1.6;
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .markdown-body h1,
@@ -176,4 +176,119 @@
 
 .markdown-body tr:nth-child(even) {
   background-color: #1e1e1e;
+}
+
+.markdown-body .gist {
+  color-scheme: dark;
+  margin: 24px 0;
+
+  // Variáveis do GitHub Primer
+  --color-canvas-default: #0d1117 !important;
+  --color-canvas-subtle: #161b22 !important;
+  --color-border-default: #30363d !important;
+  --color-border-muted: #21262d !important;
+  --color-fg-default: #e6edf3 !important;
+  --color-fg-muted: #848d97 !important;
+  --color-fg-subtle: #6e7681 !important;
+  --color-accent-fg: #58a6ff !important;
+
+  // Moldura do arquivo
+  .gist-file {
+    border: 1px solid #30363d !important;
+    border-radius: 6px !important;
+    background-color: #0d1117 !important;
+    overflow: hidden !important;
+  }
+
+  // Área dos dados e código
+  .gist-data,
+  .blob-wrapper,
+  .highlight,
+  .file,
+  .Box-body {
+    background-color: #0d1117 !important;
+    border-bottom: 1px solid #30363d !important;
+  }
+
+  // Tabela e linhas
+  table {
+    width: 100% !important;
+    margin: 0 !important;
+    border-collapse: collapse !important;
+    border: none !important;
+    background-color: #0d1117 !important;
+  }
+
+  tbody,
+  tr {
+    background-color: #0d1117 !important;
+    border: none !important;
+  }
+
+  th,
+  td {
+    border: none !important;
+    padding: 1px 10px !important;
+    background-color: #0d1117 !important;
+  }
+
+  // Coluna de número de linhas
+  .blob-num {
+    background-color: #0d1117 !important;
+    color: #6e7681 !important;
+    border-right: 1px solid #30363d !important;
+    text-align: right !important;
+    user-select: none !important;
+    padding: 0 10px !important;
+    width: 1% !important;
+    min-width: 50px !important;
+  }
+
+  // Código e fonte mono
+  .blob-code,
+  .blob-code-inner {
+    background-color: #0d1117 !important;
+    color: #e6edf3 !important;
+    padding-left: 10px !important;
+    white-space: pre !important;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !important;
+  }
+
+  // Linha em hover
+  tr:hover td,
+  tr:hover .blob-num,
+  tr:hover .blob-code {
+    background-color: #161b22 !important;
+  }
+
+  // Rodapé do gist
+  .gist-meta {
+    background-color: #161b22 !important;
+    color: #8b949e !important;
+    border-top: 1px solid #30363d !important;
+    padding: 10px !important;
+    font-size: 12px !important;
+
+    a {
+      color: #58a6ff !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+  }
+
+  // Cores de sintaxe do GitHub Dark
+  .pl-c { color: #8b949e !important; } // comentários
+  .pl-c1 { color: #79c0ff !important; } // constantes / números
+  .pl-s, .pl-pds, .pl-s1 { color: #a5d6ff !important; } // strings
+  .pl-k { color: #ff7b72 !important; } // keywords
+  .pl-en { color: #d2a8ff !important; } // funções
+  .pl-smi { color: #e6edf3 !important; } // propriedades
+  .pl-v { color: #ffa657 !important; } // variáveis
+  .pl-e { color: #d2a8ff !important; } // classes / tipos
+  .pl-ent { color: #7ee787 !important; } // tags HTML
+  .pl-sr, .pl-sra { color: #7ee787 !important; } // regex
 }
