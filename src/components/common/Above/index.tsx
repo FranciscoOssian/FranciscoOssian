@@ -142,16 +142,26 @@ const Content = ({ link }: { link: string }) => (
 );
 
 export const ImageBG = () => (
-  <Image
-    src={'https://media.starlightcms.io/workspaces/foln/folndev/original/bgjpg-874pe8uqj4.jpg'}
-    fill
-    alt=""
-    priority
+  <div
     style={{
-      zIndex: -10,
-      objectFit: 'cover',
-    }}
-  />
+      background: 'rgba(0, 8, 2, 0.60)',
+    }}>
+    <Image
+      src="https://firebasestorage.googleapis.com/v0/b/foln-dev.appspot.com/o/original_v2_upscaled.webp?alt=media&token=52dc67d6-2850-4b96-b1d7-c11fd5007569"
+      fill
+      alt=""
+      priority
+      style={{
+        zIndex: -10,
+        objectFit: 'cover',
+        filter: `
+          brightness(0.15)
+          contrast(1)
+          saturate(0.7)
+        `,
+      }}
+    />
+  </div>
 );
 
 const Above = ({ link }: { link: string }) => {
