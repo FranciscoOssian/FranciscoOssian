@@ -1,18 +1,13 @@
 import React, { ReactNode } from 'react';
+import { InternalLayout } from '../InternalLayout';
 
 interface Props {
   children: ReactNode[] | ReactNode;
   className?: string;
 }
 
-const PageFrame: React.FC<Props> = ({ children, className }) => {
-  return (
-    <div className={`w-svw flex justify-center items-center ${className}`}>
-      <div className={`max-w-[61.81rem] w-svw mx-8 max-md:max-w-[320px] ${className}`}>
-        {children}
-      </div>
-    </div>
-  );
+const PageFrame: React.FC<Props> = ({ children, className = '' }) => {
+  return <InternalLayout className={className}>{children}</InternalLayout>;
 };
 
 export default PageFrame;
